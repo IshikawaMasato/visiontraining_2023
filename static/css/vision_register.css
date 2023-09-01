@@ -1,0 +1,23 @@
+.vision {
+    margin: 10rem,auto,auto;
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.meters {
+    width: 500px;
+    height: 20px;
+}
+/* メーターのバーの色を変える */
+meter::-webkit-meter-bar {
+    background-color: lightgray; /* デフォルトのバーの色 */
+  }
+  
+  /* メーターの値の色を変える */
+  meter::-webkit-meter-optimum-value,
+  meter::-webkit-meter-suboptimum-value,
+  meter::-webkit-meter-even-less-good-value {
+    background-color: #40D458; /* メーターの値の色 */
+  }
