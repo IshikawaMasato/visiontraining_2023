@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/vision_register.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/vision_register.css')}}">
 
-    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/header.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
     <div class="vision">
         <h1>動体視力ゲーム</h1>
         <p>達成率: <meter class="meters" min="0" max="10" value="0">0</meter></p>
-        <p>現在のレベル： Level{{ result.ref_level}}</p>
+        <p>現在のレベル： Level{% {{ result.ref_level}} %}</p>
         <h2>目標Level: Level
             <div class="field">
                 <button class="button" id="movedown">-</button>
@@ -36,6 +36,6 @@
         </h2>
     </div>
     <a type="button" placeholder="変更">変更</a>
-    <script src="../static/js/vision_register.js"></script>
+    <script src="{{url_for('static', filename='/js/vision_register.css')}}"></script>
 </body>
 </html>

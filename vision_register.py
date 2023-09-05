@@ -1,16 +1,12 @@
 from flask import Blueprint, render_template
-import pymysql
+import os,psycopg2
 
 vision_bp = Blueprint('vision', __name__, url_prefix='/vision')
 
 def get_connection():
-    connection = pymysql.connect(
-        host="",
-        db="vision_training",
-        user="root@localhost",
-        charset="utf8",
-        cursorclass=pymysql.cursors.DictCursor
-    )
+    url = os.environ['DATABASE_URL']
+    connection = psycopg2.connect(url)
+    return connection
 
 @vision_bp.route('/register')
 def vision_register():
