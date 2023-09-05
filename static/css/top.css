@@ -1,0 +1,91 @@
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    20%, 80% {
+        opacity: 1;
+    }
+}
+  
+.tit_font {
+  margin-top: 100px;
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 30px;
+  margin-bottom: 0.2rem;
+  padding: 0.5rem;
+  position: relative;
+  border-bottom: 5px solid;
+  color: #91f033;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+  
+.tit_font:before {
+  position: absolute;
+  bottom: -0.6rem;
+  left: 0rem;
+  right: 0rem;
+  border-bottom: 1px solid;
+  content: '';
+}
+
+.photo-container {
+  display: flex; /* Flexboxを使用して要素を横に配置 */
+  align-items: center; /* 垂直方向の中央揃え */
+  margin-bottom: 20px; /* セクション間の余白を設定 */
+}
+.photo {
+  width: 300px;
+  height: auto;
+}
+.text-container {
+  margin-left: 20px; /* 写真とタイトル・説明の間隔を設定 */
+}
+.title {
+  font-size: 24px;
+  margin-bottom: 10px; /* タイトルと説明の間隔を設定 */
+}
+.description {
+  font-size: 16px;
+}
+
+.button005 a {
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 220px;
+  padding: 10px 25px;
+  color: #FFF;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+  background: rgb(149,202,252);
+  background: linear-gradient(270deg, rgba(149,202,252,1) 0%, rgba(107,182,255,1) 100%);
+}
+.button005 a:hover {
+  background: rgb(117,188,255);
+  background: linear-gradient(270deg, rgba(117,188,255,1) 0%, rgba(62,159,252,1) 100%);
+}
