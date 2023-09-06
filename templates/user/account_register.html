@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規アカウント登録画面</title>
+</head>
+<body>
+    <h1>新規登録</h1>
+    <form action="{{url_for('user.register_confirm')}}" method="post">
+        名前<input type="text" name="name"><br>
+        年齢<select name="age">
+            <option value="0">指定しない</option>
+            <option value="1">10歳未満</option>
+            <option value="2">10歳以上20歳未満</option>
+            <option value="3">20歳以上30歳未満</option>
+            <option value="4">30歳以上40歳未満</option>
+            <option value="5">40歳以上50歳未満</option>
+            <option value="6">50歳以上60歳未満</option>
+            <option value="7">60歳以上70歳未満</option>
+            <option value="8">70歳以上80歳未満</option>
+            <option value="9">80歳以上90歳未満</option>
+            <option value="10">90歳以上100歳未満</option>
+            <option value="11">100歳以上</option>
+        </select><br>
+        性別<input type="radio" name="gender" value="0">男性
+            <input type="radio" name="gender" value="1">女性
+            <input type="radio" name="gender" value="2">その他
+            <input type="radio" name="gender" value="3" checked>指定しない<br>
+        メールアドレス<input type="email" name="mail"><br>
+        ユーザーID<input type="text" name="user_id"><br>
+        パスワード<input type="password" name="password1"><br>
+        パスワード(確認用)<input type="password" name="password2"><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

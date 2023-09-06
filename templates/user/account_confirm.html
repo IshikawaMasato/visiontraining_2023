@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録確認画面</title>
+</head>
+<body>
+<h1>登録確認画面</h1>
+    名前{{ user_data.name}}
+    年齢{{ user_data.age}}
+    性別{{ user_data.gender}}
+    メールアドレス{{ user_data.mail}}
+    ユーザーID{{ user_data.user_id}}
+    パスワード{{ user_data.password1}}
+    
+    <form action="{{ url_for('user.register_exe')}}" method="post">
+        <input type="hidden" name="name" value="{{ user_data.name }}">
+        <input type="hidden" name="age" value="{{ user_data.age }}">
+        <input type="hidden" name="gender" value="{{ user_data.gender }}">
+        <input type="hidden" name="mail" value="{{ user_data.mail }}">
+        <input type="hidden" name="user_id" value="{{ user_data.user_id }}">
+        <input type="hidden" name="password1" value="{{ user_data.password1 }}">
+        <input type="submit" 登録>
+    </form>
+    <a href="{{ url_for('user.register_form')}}">戻る</a>
+    </body>
+</html>
