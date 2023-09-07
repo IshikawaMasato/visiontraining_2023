@@ -2,7 +2,7 @@ from flask import render_template
 import os, psycopg2, string, random, hashlib
 
 def get_connection():
-    url = os.environ['DATABASE_URL']
+    url = os.environ['DATABASE_URL1']
     connection = psycopg2.connect(url)
     return connection
 
@@ -34,3 +34,43 @@ def insert_user(name, age, gender, mail, user_id, password1):
         connection.close()
 
     return count
+
+def login(user_id, password):
+    sql = 'SELECT password, salt FROM vision_accounts WHERE user_id = %s'
+    flg = False
+
+    try :
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        cursor.execute(sql, (user_id,))
+        user = cursor.fetchone()
+
+        if user != None:
+            salt = user[1]
+            hashed_password = get_hash(password, salt)
+            if hashed_password == user[0]:
+                flg = True
+
+    except psycopg2.DatabaseError :
+        flg = False
+
+    finally :
+        cursor.close()
+        connection.close()
+
+    return flg
+
+def get_id(user_id):
+    sql = 'SELECT id FROM vision_accounts WHERE user_id = %s'
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(sql, (user_id,))
+    id = cursor.fetchone()
+    accout_id = id[0]
+    cursor.close()
+    connection.close()
+
+    return accout_id
+    

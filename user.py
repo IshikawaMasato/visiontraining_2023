@@ -3,6 +3,22 @@ import db,random,string
 
 user_bp = Blueprint('user', __name__, url_prefix='/user') 
 
+@user_bp.route('/login_form')
+def login_form():
+    return render_template('user/login.html')
+
+@user_bp.route('/', methods=['POST'])
+def login_exe():
+    user_id = request.form.get('user_id')
+    password = request.form.get('password')
+
+    if db.login(user_id, password):
+        id=db.get_id(user_id)
+        session['user'] = id
+        return render_template('user.html')
+    else :
+        return render_template('user/login.html')
+
 @user_bp.route('/register_form')
 def register_form():
     return render_template('user/account_register.html')
@@ -12,11 +28,11 @@ def register_exe():
     name=request.form.get('name')
     age=request.form.get('age')
     gender=request.form.get('gender')
-    email=request.form.get('mail')
+    mail=request.form.get('mail')
     user_id=request.form.get('user_id')
     password1=request.form.get('password1')
     
-    count = db.insert_user(name, age, gender, email, user_id, password1)
+    count = db.insert_user(name, age, gender, mail, user_id, password1)
 
     if count == 1:
         return render_template('user/account_register_finish.html')
@@ -28,12 +44,12 @@ def register_confirm():
     name=request.form.get('name')
     age=request.form.get('age')
     gender=request.form.get('gender')
-    email=request.form.get('email')
+    mail=request.form.get('mail')
     user_id=request.form.get('user_id')
     password1=request.form.get('password1')
     password2=request.form.get('password2')
     
-    user_data = {'name':name,'age':age,'gender':gender,'email':email,'user_id':user_id,'password1':password1,'password2':password2,}
+    user_data = {'name':name,'age':age,'gender':gender,'mail':mail,'user_id':user_id,'password1':password1,'password2':password2,}
     
     return render_template('user/account_confirm.html',user_data=user_data)
     
