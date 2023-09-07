@@ -3,6 +3,8 @@
     max-width: 100%;
     overflow: hidden;
     margin: auto;
+    width: 900px;
+    height: 650px;
 }
 
 .slide {
