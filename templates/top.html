@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/header.css">
-    <link rel="stylesheet" href="../static/css/top.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/top.css') }}">
     <title>トップページ</title>
 </head>
 <body>
@@ -41,10 +41,10 @@
     </header>
     <div class="slideshow-container">
       <div class="slide fade">
-          <img src="../static/images/slide1.png" alt="スライド1">
+          <img src="../static/images/meme.png" alt="スライド1">
       </div>
       <div class="slide fade">
-          <img src="../static/images/slide2.png" alt="スライド2">
+          <img src="../static/images/me.png" alt="スライド2">
       </div>
     </div>
 
@@ -123,5 +123,16 @@
           </div>
       </div>
   </div>
+
+  <div class="midasi">
+    <h1 class="tit_font">自宅で体を動かしてビジョトレ</h1>
+  </div>
+  <p id="description">基本的なビジョントレーニング方法なら誰でも、いつでも、どこでも簡単に<br>
+    スポーツビジョンのトレーニングを行なうことができます。<br>
+    コツは、1日に5～10分程度、3ヶ月間続けることです。年齢やレベルにかかわらず<br>
+    その人の現状から必ず見るチカラを向上することができます。<br>
+    主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です。</p>
+
+    {% extends "visiontraining_video.html" %} 
 </body>
 </html>
