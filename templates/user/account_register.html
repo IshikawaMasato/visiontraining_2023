@@ -10,12 +10,9 @@
     <p>{% if error != null %}
         <p style="color:red">{{error}}</p>
         {% endif %}
-
-        {% if a != null %}
-        <p style="color:red">{{a}}</p>
-        {% endif %}</p>
+    </p>
     <form action="{{url_for('user.register_confirm')}}" method="post">
-        名前<input type="text" name="name"><br>
+        名前<input type="text" name="name" value="{{user_data.name if user_data is defined else''}}"><br>
         年齢<select name="age">
             <option value="0">指定しない</option>
             <option value="1">10歳未満</option>
@@ -34,10 +31,10 @@
             <input type="radio" name="gender" value="1">女性
             <input type="radio" name="gender" value="2">その他
             <input type="radio" name="gender" value="3" checked>指定しない<br>
-        メールアドレス<input type="email" name="mail"><br>
-        ユーザーID<input type="text" name="user_id"><br>
-        パスワード<input type="password" name="password1"><br>
-        パスワード(確認用)<input type="password" name="password2"><br>
+        メールアドレス<input type="email" name="mail" value="{{user_data.mail if user_data is defined else''}}"><br>
+        ユーザーID<input type="text" name="user_id" value="{{user_data.user_id if user_data is defined else''}}"><br>
+        パスワード<input type="password" name="password1" value="{{user_data.password1 if user_data is defined else''}}"><br>
+        パスワード(確認用)<input type="password" name="password2" value="{{user_data.password2 if user_data is defined else''}}"><br>
         <input type="submit">
     </form>
 </body>

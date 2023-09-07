@@ -37,27 +37,27 @@ def register_confirm():
     
     if name=='':
         error = 'ユーザ名が未入力です。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     if mail=='':
         error = 'メールアドレスが未入力です。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     if user_id=='':
         error = 'ユーザIDが未入力です。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     if password1=='':
         error = 'パスワードが未入力です。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     if password2=='':
         error = 'パスワード(確認用)が未入力です。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     if password1 != password2:
         error = 'パスワードとパスワード(確認用)には同じパスワードを入力してください。'
-        return render_template('user/account_register.html', error=error)
+        return render_template('user/account_register.html', error=error,user_data=user_data)
     
     
     if error == "":
