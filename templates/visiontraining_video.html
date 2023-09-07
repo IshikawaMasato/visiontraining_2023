@@ -1,19 +1,24 @@
 {% block content %}
-<div id="player"></div>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visiontraining_video.css') }}">
+<div class="video-content">
+    <div id="player" class="video-main"></div>
 <div id="videoInfo" class="video-state">
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
     <p>全体の時間: <span id="totalTime">0:00</span></p>
     <p>現在の再生時間: <span id="currentTime">0:00</span></p>
     <p>再生状態: <span id="playerState">-</span></p>
-    <p>再生速度: <span id="backRate">1</span></p>
 </div>
 
-<button id="playButton" class="video-button">再生</button>
-<button id="pauseButton">一時停止</button>
-<button id="stopButton">最初から</button>
-<button id="backskipButton">10秒前へ</button>
-<button id="jaupskipButton">10秒後へ</button>
-<button id="backvideoButton">前の動画へ</button>
-<button id="nextvideoButton">次の動画へ</button>
+<button id="playButton" class="video_play"></button>
+<button id="pauseButton" class="video_pause"></button>
+<button id="stopButton" class="video_stop"></button>
+<button id="backskipButton" class="video_backskip"></button>
+<button id="jaupskipButton" class="video_jaupskip"></button>
+<button id="backvideoButton" class="back_video"></button>
+<button id="nextvideoButton" class="next_video"></button>
+</div>
 <script src="{{ url_for('static', filename='js/visiontraining_video.js') }}"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 {% endblock %}

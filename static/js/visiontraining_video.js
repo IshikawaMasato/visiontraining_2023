@@ -91,8 +91,16 @@
         //現在の再生時間を確認
         function updateCurrentTime() {
             var currentTime = player.getCurrentTime();
+            var duration = player.getDuration();
+            var progressBar = document.getElementById('progressBar');
+        
             document.getElementById('currentTime').textContent = formatTime(currentTime);
+        
+            // プログレスバーを更新
+            var progress = (currentTime / duration) * 100;
+            progressBar.style.width = progress + '%';
         }
+        
 
         function formatTime(time) {
             var minutes = Math.floor(time / 60);

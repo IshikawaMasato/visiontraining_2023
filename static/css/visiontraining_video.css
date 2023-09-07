@@ -1,0 +1,257 @@
+
+.video-content {
+    text-align: center;
+}
+
+.video_play {
+    display: inline-block;
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.05em solid currentColor;
+    border-radius: 50%;
+    color: #000;
+    font-size: 2.8rem;
+}
+.video_play::before {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%);
+    width: 0px;
+    height: 0px;
+    border: 0.5em solid transparent;
+    border-left: 0.5em solid currentColor;
+    box-sizing: border-box;
+    content: "";
+}
+
+.video_pause {
+    display: inline-block;
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.05em solid currentColor;
+    border-radius: 50%;
+    color: #000;
+    font-size: 2.8rem;
+}
+.video_pause::before,
+.video_pause::after {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0.2em;
+    height: 0.9em;
+    box-sizing: border-box;
+    background-color: currentColor;
+    content: "";
+}
+
+.video_stop {
+        position: relative;
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border: 0.2rem solid #000;
+        border-radius: 2rem;
+    animation: rotateArrow 60s linear infinite; /* アニメーションを適用 */
+}
+
+@keyframes rotateArrow {
+    0% {
+        transform: rotate(0deg); /* 0度の回転 */
+    }
+    100% {
+        transform: rotate(360deg); /* 360度の回転（1回転） */
+    }
+}
+
+.video_stop::before {
+    position: absolute;
+    display: inline-block;
+    content: " ";
+    left: 100%;
+    top: 50%;
+    margin-top: -15px;
+    margin-left:-10px;
+    width: 15px;
+    height: 30px;
+    background-color: #fff;
+}
+
+.video_stop::after {
+    position: absolute;
+    display: inline-block;
+    content: " ";
+    left: 100%;
+    top: 50%;
+    margin-top: -15px;
+    margin-left:-10px;
+    border: 10px solid transparent;
+    border: 10px solid rgba(0, 0, 0, 0);
+    border-top: 15px solid #000;
+}
+
+.video_backskip {
+    font-size: 2.8rem; /* フォントサイズを調整 */
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.1em solid #000;
+    border-radius: 100%;
+}
+
+/* マーク左 */
+.video_backskip::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.4em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+}
+
+/* マーク右 */
+.video_backskip::after {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.7em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+}
+
+.video_jaupskip {
+    font-size: 2.8rem; /* フォントサイズを調整 */
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.1em solid #000;
+    border-radius: 100%;
+}
+
+.video_jaupskip::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.2em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+    transform: rotate(180deg);
+}
+
+/* マーク右 */
+.video_jaupskip::after {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.6em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+    transform: rotate(180deg);
+}
+
+.video-pragress {
+    width: 100%;
+    height: 1.5em;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 1.5em;border: 2px solid white;
+}
+
+.back_video{
+    font-size: 2.8rem; /* フォントサイズを調整 */
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.1em solid #000;
+    border-radius: 100%;
+}
+
+/* マーク左 */
+.back_video::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.5em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+    transform: rotate(180deg);
+}
+
+/* マーク右 */
+.back_video::after {
+    position: absolute;
+    top: 0.3em;
+    left: 0.4em;
+    width: 0.1em;
+    height: 0.8em;
+    box-sizing: border-box;
+    background-color: currentColor;
+    content: "";
+    transform: rotate(180deg);
+}
+
+.next_video{
+    font-size: 2.8rem; /* フォントサイズを調整 */
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.1em solid #000;
+    border-radius: 100%;
+}
+
+/* マーク左 */
+.next_video::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0.4em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-left: 0.4em solid #000;
+    border-bottom: 0.4em solid transparent;
+}
+
+/* マーク右 */
+.next_video::after {
+    position: absolute;
+    top: 0.3em;
+    left: 0.8em;
+    width: 0.1em;
+    height: 0.8em;
+    box-sizing: border-box;
+    background-color: currentColor;
+    content: "";
+}
+
+#progressContainer {
+    width: 640px;
+    height: 10px;
+    background-color: #ccc;
+    margin: 10px auto; 
+}
+
+#progressBar {
+    height: 100%;
+    background-color: #0073e6;
+}
