@@ -2,13 +2,13 @@
 .open {
 	cursor:pointer;
 }
-#pop-up {
+#pop-up1, #pop-up2 {
 	display: none;
 }
 .overlay {
 	display: none;
 }
-#pop-up:checked + .overlay {
+#pop-up1:checked + .overlay, #pop-up2:checked + .overlay {
 	display: block;
 	position: fixed;
 	width: 100%;
@@ -18,7 +18,7 @@
 	z-index: 9999;
 	background: rgba(0, 0, 0, 0.6);
 }
-.window {
+.window1, .window2 {
 	position: fixed;
 	top: 50%;
 	left: 50%;
