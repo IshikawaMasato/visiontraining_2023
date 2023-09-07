@@ -35,31 +35,30 @@ def register_confirm():
     
     user_data = {'name':name,'age':age,'gender':gender,'email':email,'user_id':user_id,'password1':password1,'password2':password2,}
     
-    return render_template('user/account_confirm.html',user_data=user_data)
-    
-    # if name=='':
-    #     error = 'ユーザ名が未入力です。'
-    #     return render_template('teacher/register_teacher.html', error=error)
-    
-    # if email=='':
-    #     error = 'メールアドレスが未入力です。'
-    #     return render_template('teacher/register_teacher.html', error=error)
-    
-    # if user_id=='':
-    #     error = 'ユーザIDが未入力です。'
-    #     return render_template('teacher/register_teacher.html', error=error)
-    
-    # if password1=='':
-    #     error = 'パスワードが未入力です。'
-    #     return render_template('teacher/register_teacher.html', error=error)
-    
-    # if password2=='':
-    #     error = 'パスワード(確認用)が未入力です。'
-    #     return render_template('teacher/register_teacher.html', error=error)
     
     
-    # if error=="":
-    #     return render_template('user/account_confirm.html')
-    # else:
-    #     return redirect(url_for('user/account_register.html',error=error))
+    if name=='':
+        error = 'ユーザ名が未入力です。'
+        return render_template('teacher/register_teacher.html', error=error)
     
+    if email=='':
+        error = 'メールアドレスが未入力です。'
+        return render_template('teacher/register_teacher.html', error=error)
+    
+    if user_id=='':
+        error = 'ユーザIDが未入力です。'
+        return render_template('teacher/register_teacher.html', error=error)
+    
+    if password1=='':
+        error = 'パスワードが未入力です。'
+        return render_template('teacher/register_teacher.html', error=error)
+    
+    if password2=='':
+        error = 'パスワード(確認用)が未入力です。'
+        return render_template('teacher/register_teacher.html', error=error)
+    
+    
+    if error=="":
+        return render_template('user/account_confirm.html',user_data=user_data)
+    else:
+        return redirect(url_for('user/account_register.html',error=error))
