@@ -3,6 +3,22 @@ import db,random,string
 
 user_bp = Blueprint('user', __name__, url_prefix='/user') 
 
+@user_bp.route('/login_form')
+def login_form():
+    return render_template('user/login.html')
+
+@user_bp.route('/', methods=['POST'])
+def login_exe():
+    user_id = request.form.get('user_id')
+    password = request.form.get('password')
+
+    if db.login(user_id, password):
+        id=db.get_id(user_id)
+        session['user'] = id
+        return render_template('user.html')
+    else :
+        return render_template('user/login.html')
+
 @user_bp.route('/register_form')
 def register_form():
     return render_template('user/account_register.html')

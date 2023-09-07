@@ -20,8 +20,8 @@
 
         <div class="account-icon" id="accountIcon"></div>
         <div class="account-menu" id="accountMenu">
-          <div class="account-menu-item"><a href="login.html">ログイン</a></div>
-          <div class="account-menu-item"><a href="{{url_for('user.register_form')}}">新規登録</a></div>
+          <div class="account-menu-item"><a href="{{ url_for('user.login_form') }}">ログイン</a></div>
+          <div class="account-menu-item"><a href="{{ url_for('user.register_form') }}">新規登録</a></div>
         </div>
 
         <script>
