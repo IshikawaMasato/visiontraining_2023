@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>新規登録</h1>
+    <p>{% if error != null %}
+        <p style="color:red">{{error}}</p>
+        {% endif %}
+
+        {% if a != null %}
+        <p style="color:red">{{a}}</p>
+        {% endif %}</p>
     <form action="{{url_for('user.register_confirm')}}" method="post">
         名前<input type="text" name="name"><br>
         年齢<select name="age">
