@@ -57,7 +57,7 @@ def register_confirm():
         error = 'ユーザ名が未入力です。'
         return render_template('teacher/register_teacher.html', error=error)
     
-    if email=='':
+    if mail=='':
         error = 'メールアドレスが未入力です。'
         return render_template('teacher/register_teacher.html', error=error)
     
