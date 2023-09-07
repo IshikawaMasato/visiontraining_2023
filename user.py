@@ -57,6 +57,10 @@ def register_confirm():
         error = 'パスワード(確認用)が未入力です。'
         return render_template('teacher/register_teacher.html', error=error)
     
+    if password1 != password2:
+        error = 'パスワードとパスワード(確認用)には同じパスワードを入力してください。'
+        return render_template('teacher/register_teacher.html', error=error)
+    
     
     if error=="":
         return render_template('user/account_confirm.html',user_data=user_data)
