@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/top.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <title>トップページ</title>
-</head>
-<body>
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
 <header class="header">
     <h1 class="header-logo"><a href={{ url_for('index') }}>ビジョトレ</a></h1>
 
@@ -40,6 +31,4 @@
         });
     </script>
 </header>
-  {% extends "visiontraining_video.html" %} 
-</body>
-</html>
+{% endblock %}
