@@ -11,13 +11,23 @@ def login_form():
 def login_exe():
     user_id = request.form.get('user_id')
     password = request.form.get('password')
+    user_data = {'user_id':user_id,'password':password}
 
+    if user_id=='':
+        error = 'ユーザIDが未入力です。'
+        return render_template('user/login.html', error=error,user_data=user_data)
+    
+    if password=='':
+        error = 'パスワードが未入力です。'
+        return render_template('user/login.html', error=error,user_data=user_data)
+    
     if db.login(user_id, password):
         id=db.get_id(user_id)
         session['user'] = id
         return render_template('user.html')
     else :
-        return render_template('user/login.html')
+        error = 'ユーザIDもしくはパスワードが違います。'
+        return render_template('user/login.html',error=error,user_data=user_data)
 
 @user_bp.route('/register_form')
 def register_form():
@@ -80,3 +90,4 @@ def register_confirm():
         return render_template('user/account_confirm.html',user_data=user_data)
     else:
         return redirect(url_for('user/account_register.html',error=error))
+    
