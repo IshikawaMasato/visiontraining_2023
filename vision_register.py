@@ -1,20 +1,21 @@
 from flask import Blueprint, render_template
 import os,psycopg2
 
-vision_bp = Blueprint('vision', __name__, url_prefix='/vision')
+vision_bp = Blueprint('vision_register', __name__, url_prefix='/vision_register')
 
 def get_connection():
     url = os.environ['DATABASE_URL']
     connection = psycopg2.connect(url)
     return connection
 
-@vision_bp.route('/register')
+@vision_bp.route('/register', methods=['POST'])
 def vision_register():
     result = vision_confirm(id=id)
-    return render_template('vision/vision_register.html', result=result)
+    return render_template('vision_register.html', result=result)
 
+@vision_bp.route('/register')
 def vision_changes():
-    return render_template('vision/vision_register.html')
+    return render_template('vision_register.html')
 
 
 def vision_confirm(id):
