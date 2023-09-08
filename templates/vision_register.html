@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/vision_register.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
-    <title>Document</title>
+    <title>目標設定</title>
 </head>
 <body>
 
@@ -13,15 +13,17 @@
         <p style="color:red">{{error}}</p>
         {% endif %}
     </p>
-    
+    {% for re in result %}
+    <form action="{{ url_for('vision_register.vision_register') }}" method="post">
     <div class="vision">
         <h1>反射神経ゲーム</h1>
-        <p>達成率: <meter class="meters" min="0" max="{{ result.dva_vision_level}}" value="{{ result.dva_level }}"></meter></p>
-        <p>現在のレベル： Level {{ result.dva_level }}</p>
-        <h2>目標Level: Level
+        <h1></h1>
+        <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[0] }} </h2>
+        <h2>目標Level: Level{{ re[1]}}
             <div class="field">
                 <button class="button" id="reflexdown">-</button>
-                <input type="text" value="{{ result.dva_vision_level }}" class="inputtext" id="reflextextbox" name="dva_level">
+                <input type="text" value="{{ re[1]}}" class="inputtext" id="reflextextbox" name="dva_vision_level">
                 <button class="button" id="reflexup">+</button>
                 </div>
         </h2>
@@ -29,17 +31,18 @@
 
     <div class="vision">
         <h1>動体視力ゲーム</h1>
-        <p>達成率: <meter class="meters" min="0" max="{{ result.ref_vision_level }}" value="{{ result.ref_level}}"></meter></p>
-        <p>現在のレベル： Level{{ result.ref_level }}</p>
-        <h2>目標Level: Level
+        <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[2] }}</h2>
+        <h2>目標Level: Level{{ re[3]}}
             <div class="field">
                 <button class="button" id="movedown">-</button>
-                <input type="text" value="{{ result.dva_vision_level }}" class="inputtext" id="movetextbox" name="ref_level">
+                <input type="text" value="{{ re[3]}}" class="inputtext" id="movetextbox" name="ref_vision_level">
                 <button class="button" id="moveup">+</button>
             </div>
         </h2>
+        <input type="submit" class="exechange-button" placeholder="変更">
     </div>
-    <a type="button" placeholder="変更">変更</a>
-    <script src="{{url_for('static', filename='/js/vision_register.css')}}"></script>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='js/vision_register.js') }}"></script>
 </body>
 </html>
