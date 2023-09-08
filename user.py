@@ -96,3 +96,7 @@ def register_confirm():
 
     return render_template('user/account_confirm.html',user_data=user_data)
 
+
+@user_bp.route('/password_publish')
+def password_publish():
+    render_template('user/password_publish.html')
