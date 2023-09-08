@@ -35,6 +35,11 @@
     position: absolute;
 }
 
+.time {
+    text-align: right;
+    padding-left: 5em;
+}
+
 /* .square {
     width: 100px;
     height: 100px;
