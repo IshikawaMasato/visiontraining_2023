@@ -15,19 +15,20 @@ def vision_register():
     ref_vision_level = request.form.get('ref_vision_level')
 
     if dva_vision_level =='':
-        result = db.vision_confirm(id=id)
+        result = db.vision_confirm(id)
         error = '動体視力の目標レベルが未設定です。'
         return render_template('vision_register.html', error=error,result=result)
     
     if ref_vision_level == '':
-        result = db.vision_confirm(id=id)
+        result = db.vision_confirm(id)
         error = '動体視力の目標レベルが未設定です。'
         return render_template('vision_register.html', error=error,result=result)
-    result = db.vision_exechange(id,dva_vision_level,ref_vision_level)
+    db.vision_exechange(id,dva_vision_level,ref_vision_level)
+    result = db.vision_confirm(id)
     return render_template('vision_register.html', result=result)
 
 @vision_bp.route('/register')
 def vision_changes():
-    session['user'] = id
-    result = db.vision_confirm(id=id)
-    return render_template('vision_register.html',result=result)
+    id = session['user'] 
+    result = db.vision_confirm(id)
+    return render_template('vision_register.html', result=result)
