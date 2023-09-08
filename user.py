@@ -77,6 +77,4 @@ def register_confirm():
     
     
     return render_template('user/account_confirm.html',user_data=user_data)
-    # if error == "":
-    # else:
-    #     return redirect(url_for('user/account_register.html',error=error))
+

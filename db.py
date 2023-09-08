@@ -2,7 +2,7 @@ from flask import render_template
 import os, psycopg2, string, random, hashlib
 
 def get_connection():
-    url = os.environ['DATABASE_URL1']
+    url = os.environ['DATABASE_URL']
     connection = psycopg2.connect(url)
     return connection
 
@@ -74,3 +74,23 @@ def get_id(user_id):
 
     return accout_id
     
+# 現在と目標のレベルを取得
+def vision_confirm(id):
+    connection = get_connection()
+    cursor = connection.cursor()
+    sql = 'SELECT dva_vision_level,ref_vision_level,dva_level,ref_level FROM vision_accounts WHERE id = %s '
+    cursor.execute(sql,(id,))
+    rows = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return rows
+
+def vision_exechange(id,dva_vision_level,ref_vision_level):
+    connction = get_connection()
+    cursur = connction.cursur()
+    sql = "UPDATE vision_accounts SET dva_vision_level = %s, ref_vision_level = %s, WHERE id = %s"
+    cursur.excute(sql,(dva_vision_level,ref_vision_level,id,))
+    rows = cursur.fetchall()
+    cursur.close()
+    connction.close()
+    return rows
