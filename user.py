@@ -77,4 +77,4 @@ def register_confirm():
     
     
     return render_template('user/account_confirm.html',user_data=user_data)
-    
+
