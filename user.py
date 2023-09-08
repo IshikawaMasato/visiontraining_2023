@@ -7,6 +7,18 @@ user_bp = Blueprint('user', __name__, url_prefix='/user')
 def login_form():
     return render_template('user/login.html')
 
+@user_bp.route('/logout')
+def logout():
+    session.pop('user',None)
+    return redirect(url_for('index'))
+
+@user_bp.route('/')
+def user():
+    if 'user' in session:
+        return render_template('user.html')
+    else:
+        return render_template('top.html')
+
 @user_bp.route('/', methods=['POST'])
 def login_exe():
     user_id = request.form.get('user_id')
