@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../static/css/header.css">
     <title>反射神経ゲーム</title>
 </head>
-<body>
+<body onload="draw();">
     <header id="header" class="header">
         <h1 id="header" class="header-logo"><a href="top.html">ビジョトレ</a></h1>
     
@@ -40,5 +40,8 @@
             });
         </script>
     </header>
+
+    <canvas id="square" width="500" height="500"></canvas>
+      <script src="../../static/js/ref_game.js"></script>
 </body>
 </html>
