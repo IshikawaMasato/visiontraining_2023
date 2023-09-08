@@ -7,8 +7,8 @@
 
 .main {
     background: #00eeff;
-    width: 380px;
-    height: 350px;
+    width: 390px;
+    height: 360px;
     display: flex;
     margin: 0 auto;
     /* justify-content: center; */
@@ -17,8 +17,8 @@
 
 #button1, #button2, #button3, #button4, #button5, #button6, #button7, #button8, #button9 {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     padding: 10px 10px;
     margin-left: 25px;
     margin-top: 15px;
@@ -28,7 +28,13 @@
     font-weight: bold;
     cursor: pointer;
     user-select: none;
-  }
+}
+
+.sub div img {
+    display: block;
+    position: absolute;
+}
+
 /* .square {
     width: 100px;
     height: 100px;
