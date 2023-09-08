@@ -16,5 +16,6 @@
         ユーザID:<input type="text" name="user_id" value="{{user_data.user_id if user_data is defined else''}}"><br>
         パスワード：<input type="password" name="password" value="{{user_data.password if user_data is defined else''}}"><br>
     <button type="submit">ログイン</button>
+    <a href="{{ url_for('user.password_publish') }}">パスワードが分からない場合</a>
 </body>
 </html>
