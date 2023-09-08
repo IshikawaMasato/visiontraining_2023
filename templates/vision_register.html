@@ -8,16 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    {% extends "user/user_header.html" %} 
+
+    <p>{% if error != null %}
+        <p style="color:red">{{error}}</p>
+        {% endif %}
+    </p>
     
     <div class="vision">
         <h1>反射神経ゲーム</h1>
-        <p>達成率: <meter class="meters" min="0" max="10" value="1">10</meter></p>
-        <p>現在のレベル： Level </p>
+        <p>達成率: <meter class="meters" min="0" max="{{ result.dva_vision_level}}" value="{{ result.dva_level }}"></meter></p>
+        <p>現在のレベル： Level {{ result.dva_level }}</p>
         <h2>目標Level: Level
             <div class="field">
                 <button class="button" id="reflexdown">-</button>
-                <input type="text" value="1" class="inputtext" id="reflextextbox">
+                <input type="text" value="{{ result.dva_vision_level }}" class="inputtext" id="reflextextbox" name="dva_level">
                 <button class="button" id="reflexup">+</button>
                 </div>
         </h2>
@@ -25,12 +29,12 @@
 
     <div class="vision">
         <h1>動体視力ゲーム</h1>
-        <p>達成率: <meter class="meters" min="0" max="10" value="0">0</meter></p>
-        <p>現在のレベル： Level</p>
+        <p>達成率: <meter class="meters" min="0" max="{{ result.ref_vision_level }}" value="{{ result.ref_level}}"></meter></p>
+        <p>現在のレベル： Level{{ result.ref_level }}</p>
         <h2>目標Level: Level
             <div class="field">
                 <button class="button" id="movedown">-</button>
-                <input type="text" value="1" class="inputtext" id="movetextbox">
+                <input type="text" value="{{ result.dva_vision_level }}" class="inputtext" id="movetextbox" name="ref_level">
                 <button class="button" id="moveup">+</button>
             </div>
         </h2>

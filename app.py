@@ -13,7 +13,7 @@ app.register_blueprint(vision_bp)
 
 @app.route('/')
 def index():
-    return render_template('user.html')
+    return render_template('top.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
