@@ -8,6 +8,10 @@
     font-size: 70px;
 }
 
+.result {
+    font-size: 30px;
+}
+
 .button {
     display: flex;
     flex-direction: column;
