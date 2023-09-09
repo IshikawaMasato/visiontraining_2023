@@ -22,14 +22,6 @@ var id = setInterval(function () {
     if(timeDiff <= 0) {
         clearInterval(id);
         document.getElementById('timer').innerText = "0.0秒";
-        document.getElementById('main').hide;
-        // $('.main').hide();
+        document.getElementById('main').remove();
     }
 }, 1);
-// var timer = document.getElementById("timer");
-// function count_down() {
-//     count--;
-
-// }
-
-var jikou = setInterval(count, 5000);
