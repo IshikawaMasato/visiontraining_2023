@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/ref_game_sub.css">
-    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../../static/css/ref_game_main.css">
+    <link rel="stylesheet" href="../../../static/css/header.css">
     <title>反射神経ゲーム</title>
 </head>
 <body>
@@ -41,14 +41,22 @@
         </script>
     </header>
 
-    <div class="view">
-        <p class="message">おみごと！</p>
-        <div class="button">
-            <button type="button">次のレベルへ</button>
-            <br><br>
-            <button type="button">タイトルに戻る</button>
-        </div>
+    <h2 class="level"><span>Level</span>
+      <span class="time">残り時間</span>
+      <span id="timer"><script src="../../../static/js/ref_game_timer.js"></script></span></h2>
+    <div id="main">
+      <div class="sub">
+        <div id="button1"><img src="../../../static/images/jyobi.png" alt="画像"></div>
+        <div id="button2"></div>
+        <div id="button3"></div>
+        <div id="button4"></div>
+        <div id="button5"></div>
+        <div id="button6"></div>
+        <div id="button7"></div>
+        <div id="button8"></div>
+        <div id="button9"></div>
+        <script src="../../../static/js/ref_game_button.js"></script>
+      </div>
     </div>
-    
 </body>
 </html>
