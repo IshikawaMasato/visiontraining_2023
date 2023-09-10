@@ -41,15 +41,17 @@
         </script>
     </header>
 
-    <div>
+    <div class="return">
         <button>トップページに戻る</button>
     </div>
-    <h1>反射神経ゲーム</h1>
-    <div>
+    <h1 class="game">反射神経ゲーム</h1>
+    <div class="start">
         <button>ゲームスタート</button>
     </div>
 
-    <label class="open" for="pop-up1">遊び方</label>
+    <div class="pop-up-menu">
+        <label class="open" for="pop-up1">遊び方</label>
+    </div>
     <input type="checkbox" id="pop-up1">
     <div class="overlay">
         <div class="window1">
@@ -62,8 +64,9 @@
             <p>レベルは１０まであります。ゴール目指して頑張りましょう！</p>
         </div>
     </div>
-    <br>
-    <label class="open" for="pop-up2">ランキング</label>
+    <div class="pop-up-menu">
+        <label class="open" for="pop-up2">ランキング</label>
+    </div>
     <input type="checkbox" id="pop-up2">
     <div class="overlay">
         <div class="window2">
@@ -123,6 +126,7 @@
                     </tr>
                 </table>
             </div>
+        </div>
         </div>
     </div>
 </body>
