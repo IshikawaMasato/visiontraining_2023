@@ -37,7 +37,11 @@
 
 .time {
     text-align: right;
-    padding-left: 5em;
+    padding-left: 2em;
+}
+
+.counts {
+    padding-left: 2em;
 }
 
 /* .square {
