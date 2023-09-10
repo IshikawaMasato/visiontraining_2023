@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
     <title>登録確認画面</title>
 </head>
 <body>
+    {% include "top_header.html" %}
 <h1>登録確認画面</h1>
     名前{{ user_data.name}}
     年齢{{ user_data.age}}
