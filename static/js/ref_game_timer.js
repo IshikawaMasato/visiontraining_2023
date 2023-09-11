@@ -14,7 +14,6 @@ var countdown = function () {
     } else {
         document.getElementById('timer').innerText = timeDiff + "秒";
     }
-    
 }
 
 var id = setInterval(function () {
