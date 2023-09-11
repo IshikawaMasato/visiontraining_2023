@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/top.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <title>トップページ</title>
-</head>
-<body>
-<header class="header">
-    <h1 class="header-logo"><a href={{ url_for('index') }}>ビジョトレ</a></h1>
 
-    <nav class="header-nav">
-        <ul class="header-list">
-            <li class="header-item"><a href="ref_game.html">反射神経ゲーム</a></li>
-            <li class="header-item"><a href="dva_game.html">動体視力ゲーム</a></li>
-        </ul>
-    </nav>
+    {% extends "layout.html" %} 
+    {% block title %}トップページ{% endblock %}
 
-    <div class="account-icon" id="accountIcon"></div>
-    <div class="account-menu" id="accountMenu">
-      <div class="account-menu-item"><a href="{{ url_for('user.login_form') }}">ログイン</a></div>
-      <div class="account-menu-item"><a href="{{ url_for('user.register_form') }}">新規登録</a></div>
-    </div>
 
-    <script>
-        const accountIcon = document.getElementById("accountIcon");
-        const accountMenu = document.getElementById("accountMenu");
-      
-        accountIcon.addEventListener("click", () => {
-          accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-        });
-      
-        document.addEventListener("click", (event) => {
-          if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-            accountMenu.style.display = "none";
-          }
-        });
-    </script>
-</header>
-  {% extends "visiontraining_video.html" %} 
-</body>
-</html>
+    {% include "top_header.html" %}
+    {% include "visiontraining_video.html"%}
