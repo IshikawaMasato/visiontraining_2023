@@ -1,0 +1,16 @@
+{% for re in result %}
+<div class="vision">
+    <h1>反射神経ゲーム</h1>
+    <h1></h1>
+    <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
+    <h2>現在のレベル： Level{{ re[0] }} </h2>
+    <h2>目標Level: Level{{ re[1]}}
+    </h2>
+</div>
+<div class="vision">
+    <h1>動体視力ゲーム</h1>
+    <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
+    <h2>現在のレベル： Level{{ re[2] }}</h2>
+    <h2>目標Level: Level{{ re[3]}}</h2>
+</div>
+    {% endfor %}

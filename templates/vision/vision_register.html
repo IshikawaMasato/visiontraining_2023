@@ -17,7 +17,9 @@
     <form action="{{ url_for('vision_register.vision_register') }}" method="post">
     <div class="vision">
         <h1>反射神経ゲーム</h1>
-        <h1></h1>
+        {% if re[0] == re[1] and re[0] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
         <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
         <h2>現在のレベル： Level{{ re[0] }} </h2>
         <h2>目標Level: Level{{ re[1]}}
@@ -31,6 +33,9 @@
 
     <div class="vision">
         <h1>動体視力ゲーム</h1>
+        {% if re[0] == re[1] and re[0] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
         <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
         <h2>現在のレベル： Level{{ re[2] }}</h2>
         <h2>目標Level: Level{{ re[3]}}
