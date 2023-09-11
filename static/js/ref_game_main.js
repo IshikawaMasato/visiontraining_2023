@@ -10,7 +10,7 @@ var timeDiff;
 var intervalTime = 1;
 var coolDiff;
 var score;
-var message = '';
+var message = '開始前';
 const buttons = document.querySelectorAll('.button');
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -78,7 +78,7 @@ var cooldown = function () {
 }
 
 function timer_switch() {
-    if( ['正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+    if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
