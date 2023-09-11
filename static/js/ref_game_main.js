@@ -4,7 +4,8 @@ let counter = 0;
 let maxcount = 5;
 let level = 1;
 let maxlevel = 10;
-var limitTime = 5;
+const limit = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5, 1, 0.5];
+var limitTime = limit[level-1];
 var startTime = Date.now();
 var timeDiff;
 var intervalTime = 1;
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var countdown = function () {
     if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
-        limitTime = 5;
+        limitTime = limit[level-1];
         startTime = Date.now();
         message = '';
     }
@@ -83,7 +84,7 @@ function timer_switch() {
         if(coolDiff <= 0) {
             coolDiff = 0;
             intervalTime = 1;
-            limitTime = 5;
+            limitTime = limit[level-1];
             startTime = Date.now();
             message = '';
         }
