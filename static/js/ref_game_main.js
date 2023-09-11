@@ -8,19 +8,24 @@ var limitTime = 5;
 var startTime = Date.now();
 var timeDiff;
 var score;
+var message = '';
 
 document.addEventListener("DOMContentLoaded", function() {
     function CountUp() {
         if( counter < maxcount ) {
             counter++;
             console.log(counter);
+            message = '正解';
+            console.log(message);
             if( counter === maxcount ) {
                 if( level === maxlevel ) {
-                    console.log('ゲームクリア！');
+                    message = 'ゲームクリア！';
+                    console.log(message);
                 } else {
                     level++;
                     counter = 0;
-                    console.log('レベルアップ！');
+                    message = 'レベルアップ！'
+                    console.log(message);
                 }
             }
         }
@@ -35,12 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var countdown = function () {
+    if( message === '正解' || message === 'ゲームクリア！' || message === 'レベルアップ！' ) {
+        limitTime = 5;
+        startTime = Date.now();
+        message = '';
+    }
     timeDiff = Date.now() - startTime;
     timeDiff = limitTime - (timeDiff / 1000);
     timeDiff*=10;
     timeDiff = Math.floor(timeDiff);
     timeDiff = timeDiff / 10;
-    if( (timeDiff * 10) % 10 == 0 ) {
+    if( (timeDiff * 10) % 10 === 0 ) {
         document.getElementById('timer').innerText = timeDiff + ".0秒";
     } else {
         document.getElementById('timer').innerText = timeDiff + "秒";
