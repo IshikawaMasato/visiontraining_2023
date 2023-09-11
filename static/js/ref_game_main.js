@@ -7,11 +7,15 @@ let maxlevel = 10;
 var limitTime = 5;
 var startTime = Date.now();
 var timeDiff;
+var intervalTime = 1;
+var coolDiff;
 var score;
 var message = '';
+const buttons = document.querySelectorAll('.button');
 
 document.addEventListener("DOMContentLoaded", function() {
     function CountUp() {
+        console.log(`id名「${this.id}」のボタンを押しました。`);
         if( counter < maxcount ) {
             counter++;
             console.log(counter);
@@ -31,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    document.getElementById('button1').addEventListener('click', CountUp);
+    // ボタン押下後の処理
+    buttons.forEach((button) => {
+        button.addEventListener('click', CountUp);
+    });
 
     setInterval(function () {
         document.getElementById('counter').innerText = counter;
@@ -40,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var countdown = function () {
-    if( message === '正解' || message === 'ゲームクリア！' || message === 'レベルアップ！' ) {
+    if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         limitTime = 5;
         startTime = Date.now();
         message = '';
@@ -57,48 +64,41 @@ var countdown = function () {
     }
 }
 
-var id = setInterval(function () {
-    countdown();
-    if(timeDiff <= 0) {
-        clearInterval(id);
-        document.getElementById('timer').innerText = "0.0秒";
-        document.getElementById('main').remove();
+var cooldown = function () {
+    if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+        message = 'クールダウン';
+        startTime = Date.now();
     }
-}, 1);
+    coolDiff = Date.now() - startTime;
+    coolDiff = intervalTime - (coolDiff/ 1000);
+    coolDiff*=10;
+    coolDiff = Math.floor(coolDiff);
+    coolDiff = coolDiff / 10;
+    console.log('クールダウン：残り' + coolDiff + '秒');
+}
 
-document.getElementById('button1').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
+function timer_switch() {
+    if( ['正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+        cooldown();
+        if(coolDiff <= 0) {
+            coolDiff = 0;
+            intervalTime = 1;
+            limitTime = 5;
+            startTime = Date.now();
+            message = '';
+        }
+        console.log('cooltime');
+    } else {
+        countdown();
+        if(timeDiff <= 0) {
+            document.getElementById('timer').innerText = "0.0秒";
+            document.getElementById('main').remove();
+            message = 'ゲーム終了！';
+            console.log(message);
+        }
+    }
 
-document.getElementById('button2').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
+    setTimeout(timer_switch, 100);
+};
 
-document.getElementById('button3').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button4').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button5').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button6').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button7').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button8').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
-document.getElementById('button9').addEventListener('click', function(){
-    console.log('id名「' + this.id + '」のボタンを押しました。');
-});
-
+timer_switch();
