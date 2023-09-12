@@ -8,7 +8,7 @@
     <title>目標設定</title>
 </head>
 <body>
-
+    {% include "user/user_header.html" %}
     <p>{% if error != null %}
         <p style="color:red">{{error}}</p>
         {% endif %}
@@ -17,9 +17,14 @@
     <form action="{{ url_for('vision_register.vision_register') }}" method="post">
     <div class="vision">
         <h1>反射神経ゲーム</h1>
-        <h1></h1>
+        {% if re[0] == re[1] and re[0] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
         <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
         <h2>現在のレベル： Level{{ re[0] }} </h2>
+        {% if message != null %}
+        <h1>{{ message }}</h1> 
+        {% endif %}
         <h2>目標Level: Level{{ re[1]}}
             <div class="field">
                 <button class="button" id="reflexdown">-</button>
@@ -31,8 +36,14 @@
 
     <div class="vision">
         <h1>動体視力ゲーム</h1>
+        {% if re[2] == re[3] and re[2] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
         <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
         <h2>現在のレベル： Level{{ re[2] }}</h2>
+        {% if message != null %}
+        <h1>{{ message }}</h1> 
+        {% endif %}
         <h2>目標Level: Level{{ re[3]}}
             <div class="field">
                 <button class="button" id="movedown">-</button>

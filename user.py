@@ -15,7 +15,9 @@ def logout():
 @user_bp.route('/')
 def user():
     if 'user' in session:
-        return render_template('user.html')
+        id = session['user'] 
+        result = db.vision_confirm(id)
+        return render_template('user.html',result=result)
     else:
         return render_template('top.html')
 
@@ -33,10 +35,12 @@ def login_exe():
     if db.login(user_id, password):
         id=db.get_id(user_id)
         session['user'] = id
-        return render_template('user.html')
+        result = db.vision_confirm(id)
+        return render_template('user.html',result=result)
     else :
         error = 'ユーザIDもしくはパスワードが違います。'
         return render_template('user/login.html',error=error,user_data=user_data)
+    
 @user_bp.route('/register_form')
 def register_form():
     return render_template('user/account_register.html')

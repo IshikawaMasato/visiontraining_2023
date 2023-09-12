@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.level {
+.main_ref {
     text-align: center;
     font-weight: bold;
 }
@@ -37,15 +37,9 @@
 
 .time {
     text-align: right;
-    padding-left: 5em;
+    padding-left: 2em;
 }
 
-/* .square {
-    width: 100px;
-    height: 100px;
-    background: #fff;
-    margin-left: 50px;
-} */
-/* #square {
-    background: #00eeff;
-} */
+.counts {
+    padding-left: 2em;
+}

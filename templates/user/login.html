@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/login.css')}}">
+    <title>ログイン画面</title>
 </head>
 <body>
-    
+    {% include "top_header.html" %}
     <p>{% if error != null %}
         <p style="color:red">{{error}}</p>
         {% endif %}
     </p>
-    <h1>ログイン画面</h1>
+    <div class="form">
+    <h1>ログイン</h1>
     <form action="{{ url_for('user.login_exe') }}" method="post">
-        ユーザID:<input type="text" name="user_id" value="{{user_data.user_id if user_data is defined else''}}"><br>
-        パスワード：<input type="password" name="password" value="{{user_data.password if user_data is defined else''}}"><br>
-    <button type="submit">ログイン</button>
-    <a href="{{ url_for('user.password_publish') }}">パスワードが分からない場合</a>
+        <table>
+            <tr>
+                <td><p>ユーザーID</p></td>
+                <td><input type="text" name="user_id" value="{{user_data.user_id if user_data is defined else''}}" placeholder="ユーザーID"></td>
+            </tr>
+            <tr>
+                <td><p>パスワード</p></td>
+                <td><input type="password" name="password" value="{{user_data.password if user_data is defined else''}}" placeholder="パスワード"></td>
+            </tr>
+        </table>    
+        <button type="submit">ログイン</button>
+        <p class="message"><a href="{{url_for('user.password_publish')}}">パスワードが分からない場合</a></p>
+        <p class="message"><a href="{{url_for('user.register_form')}}">新規登録</a></p>
+    </form>
+    </div>
 </body>
 </html>

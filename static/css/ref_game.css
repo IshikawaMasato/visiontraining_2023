@@ -1,6 +1,21 @@
 @charset "utf-8";
-.open {
-	cursor:pointer;
+.game {
+	font-size: 70px;
+	text-align: center;
+}
+.start {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+    justify-content: center;
+}
+.return button, .start button {
+	font-size: 30px;
+	width: 290px;
+}
+.pop-up-menu {
+	font-size: 30px;
+	text-align: center;
 }
 #pop-up1, #pop-up2 {
 	display: none;
