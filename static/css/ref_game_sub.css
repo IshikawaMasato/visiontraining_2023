@@ -1,10 +1,10 @@
 @charset "utf-8";
 
-.view {
+#view_levelup, #view_retirement, #view_allclear {
     text-align: center;
 }
 
-.view .message {
+#view_levelup .message, #view_retirement .message, #view_allclear .message {
     font-size: 70px;
 }
 

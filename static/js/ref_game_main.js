@@ -15,6 +15,11 @@ var log = true;
 let random;
 let number;
 var message = '開始前';
+const element1 = document.getElementById('main_ref');
+const element2 = document.getElementById('main');
+const element3 = document.getElementById('view_levelup');
+const element4 = document.getElementById('view_retirement');
+const element5 = document.getElementById('view_allclear');
 const buttons = document.querySelectorAll('.button');
 const buttonNumber = {
     'button1': 0,
@@ -139,7 +144,7 @@ function timer_switch() {
             console.log('cooltime finish!');
         }
     } else {
-        console.log(log);
+        // console.log(log);
         if( log === true ) {
             Random_Image();
             log = false;
@@ -147,7 +152,10 @@ function timer_switch() {
         countdown();
         if(timeDiff <= 0) {
             document.getElementById('timer').innerText = "0.0秒";
-            document.getElementById('main').remove();
+            element1.style.display = 'none';
+            element2.style.display = 'none';
+            // document.getElementById('main_ref').remove();
+            // document.getElementById('main').remove();
             message = 'ゲーム終了！';
             console.log(message);
         }
