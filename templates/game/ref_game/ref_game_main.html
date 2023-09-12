@@ -65,7 +65,7 @@
       <h1 class="message">おみごと！</h1>
       <button class="button" id="next">次のレベルへ</button>
       <br><br>
-      <button class="button" id="title1">タイトルに戻る</button>
+      <a href="{{ url_for('ref_game.ref_game') }}"><button class="button" id="title1">タイトルに戻る</button></a>
     </div>
 
     <div id="view_retirement">
@@ -75,7 +75,7 @@
             レベル：Level◯
         </div>
         <div class="button">
-            <button id="title2">タイトルに戻る</button>
+          <a href="{{ url_for('ref_game.ref_game') }}"><button id="title2">タイトルに戻る</button></a>
         </div>
     </div>
     
@@ -86,7 +86,7 @@
             レベル：Level10
         </div>
         <div class="button">
-            <button id="title3">タイトルに戻る</button>
+          <a href="{{ url_for('ref_game.ref_game') }}"><button id="title3">タイトルに戻る</button></a>
         </div>
     </div>
     <script src="../../../static/js/ref_game_main.js"></script>

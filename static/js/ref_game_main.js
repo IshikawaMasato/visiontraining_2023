@@ -31,10 +31,7 @@ const buttonNumber = {
     'button7': 6,
     'button8': 7,
     'button9': 8,
-    'next': 9,
-    'title1': 10,
-    'title2': 11,
-    'title3': 12,
+    'next': 9
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -79,6 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 Delete_Image();
             }
         } else if( number === 9 ) {
+            limitTime = limit[level-1];
+            startTime = Date.now();
+            intervalTime = 1;
             message = '次のレベルへ';
             console.log(message);
         } else {
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var countdown = function () {
-    if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+    if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！', '次のレベルへ'].includes(message) ) {
         limitTime = limit[level-1];
         startTime = Date.now();
         message = '';
@@ -111,6 +111,7 @@ var countdown = function () {
     timeDiff*=10;
     timeDiff = Math.floor(timeDiff);
     timeDiff = timeDiff / 10;
+    console.log('残り時間:' + timeDiff + '秒');
     if( (timeDiff * 10) % 10 === 0 ) {
         document.getElementById('timer').innerText = timeDiff + ".0秒";
     } else {
@@ -137,7 +138,7 @@ function timer_switch() {
     element3.style.display = 'none';
     element4.style.display = 'none';
     element5.style.display = 'none';
-    if( ['開始前', '正解', 'クールダウン'].includes(message) ) {
+    if( ['開始前', '正解', 'クールダウン', '次のレベルへ'].includes(message) ) {
         if( (limitTime * 10) % 10 === 0 ) {
             document.getElementById('timer').innerText = limitTime + ".0秒";
         } else {
@@ -157,19 +158,27 @@ function timer_switch() {
         element1.style.display = 'none';
         element2.style.display = 'none';
         element3.style.display = '';
-    } else if( message === ' 次のレベルへ') {
+        // limitTime = limit[level - 1];
+        // startTime = Date.now();
+    } else if( message === '次のレベルへ') {
         limitTime = limit[level - 1];
         startTime = Date.now();
+        intervalTime = 1;
         message = '開始前';
+        console.log(message);
+        Random_Image();
         element1.style.display = '';
         element2.style.display = '';
         element3.style.display = 'none';
-        random = 14;
+        coolDiff = 0;
     } else if( message === 'ゲームクリア！') {
         element1.style.display = 'none';
         element2.style.display = 'none';
         element5.style.display = '';
     } else {
+        element1.style.display = '';
+        element2.style.display = '';
+        element3.style.display = 'none';
         if( element1.style.display === '' && element2.style.display === '' ) {
             if( log === true ) {
                 Random_Image();
@@ -177,7 +186,7 @@ function timer_switch() {
             }
             countdown();
             if(timeDiff <= 0) {
-                document.getElementById('timer').innerText = "0.0秒";
+                // document.getElementById('timer').innerText = "0.0秒";
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 element4.style.display = '';
@@ -185,7 +194,6 @@ function timer_switch() {
                 console.log(message);
             }
         }
-        
     }
 
     setTimeout(timer_switch, 100);
@@ -215,6 +223,7 @@ function Random_Image() {
         console.log(random);
         image_area = img_button[random];
         image_area.appendChild(image);
+        startTimer();
         log = false;
     }
 
@@ -225,6 +234,12 @@ function Random_Image() {
 }
 
 setInterval(Random_Image, limitTime*1000);
+
+function startTimer() {
+    limitTime = limit[level-1];
+    startTime = Date.now();
+    countdown();
+}
 
 function Delete_Image() {
     console.log('delete');

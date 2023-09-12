@@ -19,7 +19,7 @@
     justify-content: center;
 }
 
-.button button {
+.button button, #next, #title1 {
     width: 230px;
     font-size: 30px;
 }
