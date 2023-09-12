@@ -11,6 +11,8 @@ var timeDiff;
 var intervalTime = 1;
 var coolDiff;
 var score;
+var log = true;
+let random;
 var message = '開始前';
 const buttons = document.querySelectorAll('.button');
 
@@ -19,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`id名「${this.id}」のボタンを押しました。`);
         if( counter < maxcount ) {
             counter++;
-            console.log(counter);
             message = '正解';
             console.log(message);
             if( counter === maxcount ) {
@@ -33,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.log(message);
                 }
             }
+            Delete_Image();
+            // Random_Image();
         }
     }
 
@@ -48,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var countdown = function () {
-    if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+    // Random_Image();
+    if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         limitTime = limit[level-1];
         startTime = Date.now();
         message = '';
@@ -65,7 +69,7 @@ var countdown = function () {
     }
 }
 
-var cooldown = function () {
+var cooldown = function () {    
     if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         message = 'クールダウン';
         startTime = Date.now();
@@ -80,6 +84,10 @@ var cooldown = function () {
 
 function timer_switch() {
     if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+        // if( log === false ) {
+        //     Delete_Image();
+        // }
+        // Delete_Image();
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
@@ -87,9 +95,15 @@ function timer_switch() {
             limitTime = limit[level-1];
             startTime = Date.now();
             message = '';
+            log = true;
+            console.log('cooltime finish!');
         }
-        console.log('cooltime');
     } else {
+        console.log(log);
+        if( log === true ) {
+            Random_Image();
+            log = false;
+        }
         countdown();
         if(timeDiff <= 0) {
             document.getElementById('timer').innerText = "0.0秒";
@@ -102,4 +116,41 @@ function timer_switch() {
     setTimeout(timer_switch, 100);
 };
 
+// 画像ランダム表示
+function Random_Image() {
+    let image_area;
+    let image = document.createElement('img');
+    image.src = '../../../static/images/jyobi.png';
+    image.alt = 'ゲーム画像';
+
+    const img_button = [
+        document.getElementById('button1'),
+        document.getElementById('button2'),
+        document.getElementById('button3'),
+        document.getElementById('button4'),
+        document.getElementById('button5'),
+        document.getElementById('button6'),
+        document.getElementById('button7'),
+        document.getElementById('button8'),
+        document.getElementById('button9')
+    ];
+
+    if( log === true ) {
+        random = Math.floor(Math.random() * img_button.length);
+        console.log(random);
+        image_area = img_button[random];
+        image_area.appendChild(image);
+    }
+    
+    setTimeout(Random_Image, limitTime*1000);
+}
+
+function Delete_Image() {
+    // let img_del = document.querySelectorAll("img");
+    // img_del.removeAttribute("src");
+    image.parentNode.removeChild(image);
+}
+
 timer_switch();
+
+
