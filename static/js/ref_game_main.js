@@ -84,6 +84,11 @@ var cooldown = function () {
 
 function timer_switch() {
     if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+        if( (limitTime * 10) % 10 === 0 ) {
+            document.getElementById('timer').innerText = limitTime + ".0秒";
+        } else {
+            document.getElementById('timer').innerText = limitTime + "秒";
+        }
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
