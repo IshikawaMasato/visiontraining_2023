@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, url_for, session
-import os,psycopg2,db
+import os,psycopg2,db,user
 
 vision_bp = Blueprint('vision_register', __name__, url_prefix='/vision_register')
 
@@ -10,7 +10,8 @@ def get_connection():
 
 @vision_bp.route('/register', methods=['POST'])
 def vision_register():
-    id = session['user'] 
+    
+    id = user.user_check()
     dva_vision_level = request.form.get('dva_vision_level')
     ref_vision_level = request.form.get('ref_vision_level')
     message = message_check()
@@ -30,7 +31,7 @@ def vision_register():
 
 @vision_bp.route('/register')
 def vision_changes():
-    id = session['user'] 
+    id = user.user_check()
     result = db.vision_confirm(id)
     message = message_check()
     return render_template('vision/vision_register.html', result=result,message=message)
