@@ -18,15 +18,15 @@
         <form action="{{url_for('user.register_confirm')}}" method="post">
           <table>
             <tr>
-              <td><p>名前<font class="required">必須</font><p></td>
+              <td><p>名前  <font class="required">必須</font><p></td>
                 <td><input type="text" name="name" value="{{user_data.name if user_data is defined else ''}}"></td>
               </tr>
               <tr>
-                <td>メールアドレス<font class="required">必須</font><p></td>
+                <td>メールアドレス  <font class="required">必須</font><p></td>
                   <td><input type="email" name="mail" value="{{user_data.mail if user_data is defined else ''}}"></td>
                 </tr>
                 <tr>
-                  <td>年齢<font class="any">任意</font><p></td>
+                  <td>年齢  <font class="any">任意</font><p></td>
                   <td>
                     <select name="age">
                       <option value="0">指定しない</option>
@@ -45,7 +45,7 @@
                   </td>
                 </tr>
           <tr>
-            <td>性別<font class="any">任意</font></td>
+            <td>性別  <font class="any">任意</font></td>
                 <td>
                 <label><input type="radio" name="gender" value="0">男性</label>
                 <label><input type="radio" name="gender" value="1">女性</label>
@@ -54,15 +54,15 @@
                   </td>
             </tr>
           <tr>
-            <td>ユーザーID<font class="required">必須</font></td>
+            <td>ユーザーID  <font class="required">必須</font></td>
             <td><input type="text" name="user_id" value="{{user_data.user_id if user_data is defined else ''}}"></td>
           </tr>
           <tr>
-            <td>パスワード<font class="required">必須</font></td>
+            <td>パスワード  <font class="required">必須</font></td>
             <td><input type="password" name="password1" value="{{user_data.password1 if user_data is defined else ''}}"></td>
           </tr>
           <tr>
-            <td>パスワード(確認用)<font class="required">必須</font></td>
+            <td>パスワード(確認用)  <font class="required">必須</font></td>
             <td><input type="password" name="password2" value="{{user_data.password2 if user_data is defined else ''}}"></td>
           </tr>
           <tr>

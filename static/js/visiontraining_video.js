@@ -5,7 +5,7 @@
                 height: '360',
                 width: '640',
                 playerVars: {
-                    playlist: 'A6yNMFZgfK8,g9MUolW5qBw,HvU3g3M0fcs,u3pyJ2DeklU,-vRahwR7-qY', // 再生リストのID
+                    playlist: 'g9MUolW5qBw,u3pyJ2DeklU,A6yNMFZgfK8,HvU3g3M0fcs,-vRahwR7-qY', // 再生リストのID
                     listType: 'playlist', // 再生リストタイプ指定
                     playsinline: 0,
                     modestbranding: 0,

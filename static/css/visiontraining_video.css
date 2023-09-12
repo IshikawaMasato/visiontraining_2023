@@ -1,8 +1,16 @@
 
 .video-content {
+    display: flex; /* Flexboxを使用して要素を横に配置 */
+    justify-content: center;
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 20px; /* セクション間の余白を設定 */
     text-align: center;
 }
 
+.video-bar{
+    justify-content: center;
+    align-items: center; /* 垂直方向の中央揃え */
+}
 .video_play {
     display: inline-block;
     position: relative;
