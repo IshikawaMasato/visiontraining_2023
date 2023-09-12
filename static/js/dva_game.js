@@ -24,7 +24,7 @@ const correct = document.getElementById('correct');
 const incorrect = document.getElementById('incorrect');
 
 let level=1;
-let exe_time=1000;
+let exe_time=2000;
 let dva_geme_score=0
 
 // スタートボタンをクリックしたら
@@ -58,7 +58,7 @@ document.getElementById('button1').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_1.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -88,7 +88,7 @@ document.getElementById('button2').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_2.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -117,7 +117,7 @@ document.getElementById('button3').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_3.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -146,7 +146,7 @@ document.getElementById('button4').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_4.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -175,7 +175,7 @@ document.getElementById('button5').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_5.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -204,7 +204,7 @@ document.getElementById('button6').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_6.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -233,7 +233,7 @@ document.getElementById('button7').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_7.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -262,7 +262,7 @@ document.getElementById('button8').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_8.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
@@ -291,7 +291,7 @@ document.getElementById('button9').addEventListener('click', function(){
     if (images[imageNo]==='/static/images/dva_game_number_9.png'){
       console.log('正解')
       level+=1
-      exe_time-=100
+      exe_time-=200
       dva_geme_score+=10
       correct.style.display='';
       button_table.style.display='none';
