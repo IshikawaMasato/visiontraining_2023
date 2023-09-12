@@ -26,24 +26,24 @@
             // プレーヤーが準備完了したら、動画の情報を取得し表示
             var duration = player.getDuration();
             document.getElementById('totalTime').textContent = formatTime(duration);
-
+    
             // 1秒ごとに現在の再生時間を更新
             setInterval(updateCurrentTime, 1000);
             // 再生ボタンのクリックイベントを追加
             document.getElementById('playButton').addEventListener('click', function () {
                 player.playVideo();
             });
-
+    
             // 一時停止ボタンのクリックイベントを追加
             document.getElementById('pauseButton').addEventListener('click', function () {
                 player.pauseVideo();
             });
-
+    
             // 停止ボタンのクリックイベントを追加
             document.getElementById('stopButton').addEventListener('click', function () {
                 player.stopVideo();
             });
-
+    
             // スキップボタンのクリックイベントを追加
             document.getElementById('backskipButton').addEventListener('click', function () {
                 BackskipVideo(10); // 10秒前スキップ（必要に応じて秒数を変更）
@@ -59,6 +59,13 @@
             // 次の動画ボタンのクリックイベントを追加
             document.getElementById('nextvideoButton').addEventListener('click', function () {
                 player.nextVideo();
+            });
+    
+            // 音量調整用のスライダーの変更イベントを追加
+            var volumeSlider = document.getElementById('volumeSlider');
+            volumeSlider.addEventListener('input', function () {
+                var volume = volumeSlider.value;
+                player.setVolume(volume); // 音量を設定
             });
         }
         

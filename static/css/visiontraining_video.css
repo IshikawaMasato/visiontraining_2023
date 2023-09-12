@@ -36,12 +36,23 @@
     color: #000;
     font-size: 2.8rem;
 }
-.video_pause::before,
+.video_pause::before{
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0.2em;
+    left: 0.55em;
+    height: 0.9em;
+    box-sizing: border-box;
+    background-color: currentColor;
+    content: "";
+}
 .video_pause::after {
     position: absolute;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 0.2em;
+    left: 0.85em;
     height: 0.9em;
     box-sizing: border-box;
     background-color: currentColor;
@@ -243,6 +254,34 @@
     background-color: currentColor;
     content: "";
 }
+/* 音量調節 */
+input[type="range"] {
+    width: 10%;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb::before {
+    content: attr(value);
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
 
 #progressContainer {
     width: 640px;

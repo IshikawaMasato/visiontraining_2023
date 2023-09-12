@@ -17,6 +17,7 @@ def user():
     if 'user' in session:
         id = session['user'] 
         result = db.vision_confirm(id)
+        
         return render_template('user.html',result=result)
     else:
         return render_template('top.html')
