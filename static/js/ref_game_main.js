@@ -4,13 +4,13 @@ let counter = 0;
 let maxcount = 5;
 let level = 1;
 let maxlevel = 10;
-const limit = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5, 1, 0.5];
+const limit = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5, 1, 0.75];
 var limitTime = limit[level-1];
 var startTime = Date.now();
 var timeDiff;
 var intervalTime = 1;
 var coolDiff;
-var score;
+var score = 0;
 var log = true;
 let random;
 let number;
@@ -67,9 +67,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     if( level === maxlevel ) {
                         message = 'ゲームクリア！';
                     } else {
+                        document.getElementById('level_clear').innerText = level;
                         level++;
                         counter = 0;
-                        message = 'レベルアップ！'
+                        message = 'レベルアップ！';
                     }
                     console.log(message);
                 }
@@ -172,6 +173,8 @@ function timer_switch() {
         element3.style.display = 'none';
         coolDiff = 0;
     } else if( message === 'ゲームクリア！') {
+        score = 100;
+        document.getElementById('score2').innerText = score;
         element1.style.display = 'none';
         element2.style.display = 'none';
         element5.style.display = '';
@@ -190,6 +193,9 @@ function timer_switch() {
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 element4.style.display = '';
+                score = (level - 1) * 10 + counter * 2;
+                document.getElementById('score1').innerText = score;
+                document.getElementById('level').innerText = level - 1;
                 message = 'ゲーム終了！';
                 console.log(message);
             }
