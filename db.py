@@ -74,6 +74,20 @@ def get_id(user_id):
 
     return accout_id
     
+#平均的な目標を出すための年齢を取得
+def get_age(user_id):
+    sql = 'SELECT age FROM vision_accounts WHERE id = %s'
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(sql, (user_id,))
+    age = cursor.fetchone()
+    account_age = int(age[0])
+    cursor.close()
+    connection.close()
+
+    return account_age
+
 # 現在と目標のレベルを取得
 def vision_confirm(id):
     connection = get_connection()
