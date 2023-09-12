@@ -31,6 +31,10 @@ const buttonNumber = {
     'button7': 6,
     'button8': 7,
     'button9': 8,
+    'next': 9,
+    'title1': 10,
+    'title2': 11,
+    'title3': 12,
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -47,10 +51,11 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'button7':
             case 'button8':
             case 'button9':
+            case 'next':
                 number = buttonNumber[this.id];
                 break;
             default:
-                number = 9;
+                number = 10;
                 break;
         }
 
@@ -64,18 +69,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 if( counter === maxcount ) {
                     if( level === maxlevel ) {
                         message = 'ゲームクリア！';
-                        console.log(message);
                     } else {
                         level++;
                         counter = 0;
                         message = 'レベルアップ！'
-                        console.log(message);
                     }
+                    console.log(message);
                 }
                 Delete_Image();
             }
         } else if( number === 9 ) {
-
+            message = '次のレベルへ';
+            console.log(message);
         } else {
             limitTime = 0;
             document.getElementById('main').remove();
@@ -152,24 +157,35 @@ function timer_switch() {
         element1.style.display = 'none';
         element2.style.display = 'none';
         element3.style.display = '';
+    } else if( message === ' 次のレベルへ') {
+        limitTime = limit[level - 1];
+        startTime = Date.now();
+        message = '開始前';
+        element1.style.display = '';
+        element2.style.display = '';
+        element3.style.display = 'none';
+        random = 14;
     } else if( message === 'ゲームクリア！') {
         element1.style.display = 'none';
         element2.style.display = 'none';
         element5.style.display = '';
     } else {
-        if( log === true ) {
-            Random_Image();
-            log = false;
+        if( element1.style.display === '' && element2.style.display === '' ) {
+            if( log === true ) {
+                Random_Image();
+                log = false;
+            }
+            countdown();
+            if(timeDiff <= 0) {
+                document.getElementById('timer').innerText = "0.0秒";
+                element1.style.display = 'none';
+                element2.style.display = 'none';
+                element4.style.display = '';
+                message = 'ゲーム終了！';
+                console.log(message);
+            }
         }
-        countdown();
-        if(timeDiff <= 0) {
-            document.getElementById('timer').innerText = "0.0秒";
-            element1.style.display = 'none';
-            element2.style.display = 'none';
-            element4.style.display = '';
-            message = 'ゲーム終了！';
-            console.log(message);
-        }
+        
     }
 
     setTimeout(timer_switch, 100);
@@ -202,7 +218,10 @@ function Random_Image() {
         log = false;
     }
 
-    setTimeout(Random_Image, limitTime*1000);
+    if( message === '次のレベルへ' ) {
+        setTimeout(Random_Image, limitTime*1000);
+        message = '開始前';
+    }
 }
 
 setInterval(Random_Image, limitTime*1000);
