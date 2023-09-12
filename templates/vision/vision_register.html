@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/vision_register.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/footer.css')}}">
     <title>目標設定</title>
 </head>
 <body>
@@ -54,6 +55,7 @@
         <input type="hidden" class="exechange-button" placeholder="変更">
     </div>
     {% endfor %}
+    {% include "footer.html"%}
     <script src="{{ url_for('static', filename='js/vision_register.js') }}"></script>
 </body>
 </html>

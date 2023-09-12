@@ -105,3 +105,10 @@ def register_confirm():
 @user_bp.route('/password_publish')
 def password_publish():
     render_template('user/password_publish.html')
+
+def user_check():
+    if 'user' in session:
+        id = session['user'] 
+        return id
+    else:
+        return render_template('top.html')
