@@ -84,10 +84,6 @@ var cooldown = function () {
 
 function timer_switch() {
     if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
-        // if( log === false ) {
-        //     Delete_Image();
-        // }
-        // Delete_Image();
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
@@ -140,17 +136,18 @@ function Random_Image() {
         console.log(random);
         image_area = img_button[random];
         image_area.appendChild(image);
+        log = false;
     }
-    
+
     setTimeout(Random_Image, limitTime*1000);
 }
 
+setInterval(Random_Image, limitTime*1000);
+
 function Delete_Image() {
-    // let img_del = document.querySelectorAll("img");
-    // img_del.removeAttribute("src");
-    image.parentNode.removeChild(image);
+    console.log('delete');
+    document.querySelector('img').remove();
 }
 
 timer_switch();
-
 
