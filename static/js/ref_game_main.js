@@ -13,29 +13,68 @@ var coolDiff;
 var score;
 var log = true;
 let random;
+let number;
 var message = '開始前';
 const buttons = document.querySelectorAll('.button');
+const buttonNumber = {
+    'button1': 0,
+    'button2': 1,
+    'button3': 2,
+    'button4': 3,
+    'button5': 4,
+    'button6': 5,
+    'button7': 6,
+    'button8': 7,
+    'button9': 8,
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     function CountUp() {
         console.log(`id名「${this.id}」のボタンを押しました。`);
-        if( counter < maxcount ) {
-            counter++;
-            message = '正解';
-            console.log(message);
-            if( counter === maxcount ) {
-                if( level === maxlevel ) {
-                    message = 'ゲームクリア！';
-                    console.log(message);
-                } else {
-                    level++;
-                    counter = 0;
-                    message = 'レベルアップ！'
-                    console.log(message);
+        console.log('id:' + this.id);
+        switch (this.id) {
+            case 'button1':
+            case 'button2':
+            case 'button3':
+            case 'button4':
+            case 'button5':
+            case 'button6':
+            case 'button7':
+            case 'button8':
+            case 'button9':
+                number = buttonNumber[this.id];
+                break;
+            default:
+                number = 9;
+                break;
+        }
+
+        console.log('number:' + number);
+        console.log('random:' + random);
+        if( number === random ) {
+            if( counter < maxcount ) {
+                counter++;
+                message = '正解';
+                console.log(message);
+                if( counter === maxcount ) {
+                    if( level === maxlevel ) {
+                        message = 'ゲームクリア！';
+                        console.log(message);
+                    } else {
+                        level++;
+                        counter = 0;
+                        message = 'レベルアップ！'
+                        console.log(message);
+                    }
                 }
+                Delete_Image();
+                // Random_Image();
             }
-            Delete_Image();
-            // Random_Image();
+        } else {
+            limitTime = 0;
+            document.getElementById('main').remove();
+            message = '不正解';
+            console.log(message);
         }
     }
 
@@ -84,6 +123,11 @@ var cooldown = function () {
 
 function timer_switch() {
     if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+        if( (limitTime * 10) % 10 === 0 ) {
+            document.getElementById('timer').innerText = limitTime + ".0秒";
+        } else {
+            document.getElementById('timer').innerText = limitTime + "秒";
+        }
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
