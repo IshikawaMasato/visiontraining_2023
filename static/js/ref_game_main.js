@@ -73,8 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
                 Delete_Image();
-                // Random_Image();
             }
+        } else if( number === 9 ) {
+
         } else {
             limitTime = 0;
             document.getElementById('main').remove();
@@ -95,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var countdown = function () {
-    // Random_Image();
     if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         limitTime = limit[level-1];
         startTime = Date.now();
@@ -127,7 +127,12 @@ var cooldown = function () {
 }
 
 function timer_switch() {
-    if( ['開始前', '正解', 'クールダウン', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+    element1.style.display = '';
+    element2.style.display = '';
+    element3.style.display = 'none';
+    element4.style.display = 'none';
+    element5.style.display = 'none';
+    if( ['開始前', '正解', 'クールダウン'].includes(message) ) {
         if( (limitTime * 10) % 10 === 0 ) {
             document.getElementById('timer').innerText = limitTime + ".0秒";
         } else {
@@ -143,8 +148,15 @@ function timer_switch() {
             log = true;
             console.log('cooltime finish!');
         }
+    } else if( message === 'レベルアップ！' ) {
+        element1.style.display = 'none';
+        element2.style.display = 'none';
+        element3.style.display = '';
+    } else if( message === 'ゲームクリア！') {
+        element1.style.display = 'none';
+        element2.style.display = 'none';
+        element5.style.display = '';
     } else {
-        // console.log(log);
         if( log === true ) {
             Random_Image();
             log = false;
@@ -154,8 +166,7 @@ function timer_switch() {
             document.getElementById('timer').innerText = "0.0秒";
             element1.style.display = 'none';
             element2.style.display = 'none';
-            // document.getElementById('main_ref').remove();
-            // document.getElementById('main').remove();
+            element4.style.display = '';
             message = 'ゲーム終了！';
             console.log(message);
         }
