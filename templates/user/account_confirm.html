@@ -18,7 +18,7 @@
                 <td>{{ user_data.name}}<input type="hidden" name="name" value="{{ user_data.name }}"></td>
             </tr>
             <tr>
-                <td><p>年齢{{ user_data.age }}</p></td>
+                <td><p>年齢</p></td>
                 <td>
                     {% if user_data.age == "1" %}
                     <p>10歳未満</p>
@@ -48,7 +48,7 @@
                     <input type="hidden" name="age" value="{{ user_data.age }}"></td>
             </tr>
             <tr>
-                <td><p>性別{{ user_data.gender}}</p></td>
+                <td><p>性別</p></td>
                 <td>
                     {% if user_data.gender == "0" %}
                     <p>男性</p>
