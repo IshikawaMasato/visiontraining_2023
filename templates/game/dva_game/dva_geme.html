@@ -9,7 +9,7 @@
 <body>
     <h1>動体視力ゲーム</h1>
     <div>
-        <span>ゲームスタート</span>
+        <button id="start">開始</button>
     </div>
 
     <label class="open" for="pop-up">遊び方</label>
@@ -33,38 +33,38 @@
             <h4>ランキング一覧</h4>
         </div>
     </div>
-    <div>
-        <p>横切った数字はどれ？</p>
-        <div>
-            <div>
-                <span>1</span>
-            </div>
-            <div>
-                <span>2</span>
-            </div>
-            <div>
-                <span>3</span>
-            </div>
-            <div>
-                <span>4</span>
-            </div>
-            <div>
-                <span>5</span>
-            </div>
-            <div>
-                <span>6</span>
-            </div>
-            <div>
-                <span>7</span>
-            </div>
-            <div>
-                <span>8</span>
-            </div>
-            <div>
-                <span>9</span>
-            </div>
-        </div>
+    <div class="animation-area">
+        <img id="image" src="../../../static/images/dva_game_number_1.png" style="display:none">
     </div>
-    
+
+    <p style="display:none">横切った数字はどれ？</p>
+
+    <table id="button_table" style="display: none;">
+        <tr>
+            <td><button id="button1" class="ans_botton">1</button></td>
+            <td><button id="button2" class="ans_botton">2</button></td>
+            <td><button id="button3" class="ans_botton">3</button></td>
+        </tr>
+        <tr>
+            <td><button id="button4" class="ans_botton">4</button></td>
+            <td><button id="button5" class="ans_botton">5</button></td>
+            <td><button id="button6" class="ans_botton">6</button></td>
+        </tr>
+        <tr>
+            <td><button id="button7" class="ans_botton">7</button></td>
+            <td><button id="button8" class="ans_botton">8</button></td>
+            <td><button id="button9" class="ans_botton">9</button></td>
+        </tr>
+    </table>
+
+    <div id="correct" style="display:none">
+        <h1>正解</h1>
+        <div>次のレベルへ</div>
+    </div>
+
+    <div id="incorrect" style="display:none"></div>
+    <div id="incorrect_score" style="display:none"></div>
+    <div id="incorrect_level" style="display:none"></div>
+    <script src="../../../static/js/dva_game.js" async></script>
 </body>
 </html>
