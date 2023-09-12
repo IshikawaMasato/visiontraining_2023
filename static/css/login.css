@@ -77,3 +77,8 @@ td label {
     color:black ;
     background-color: #FFC551;
 }
+
+.error {
+    color: red;
+    text-align: center;
+}

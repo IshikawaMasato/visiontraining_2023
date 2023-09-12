@@ -47,11 +47,11 @@
         <h2>目標Level: Level{{ re[3]}}
             <div class="field">
                 <button class="button" id="movedown">-</button>
-                <input type="range" value="{{ re[3]}}" class="inputtext" min="0" max="10" id="movetextbox" name="ref_vision_level">
+                <input type="range" value="{{ re[3]}}" class="inputrange" min="0" max="10" id="movetextbox" name="ref_vision_level">
                 <button class="button" id="moveup">+</button>
             </div>
         </h2>
-        <input type="submit" class="exechange-button" placeholder="変更">
+        <input type="hidden" class="exechange-button" placeholder="変更">
     </div>
     {% endfor %}
     <script src="{{ url_for('static', filename='js/vision_register.js') }}"></script>

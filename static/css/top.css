@@ -68,6 +68,10 @@ img {
   width: 20rem;
   height: auto;
 }
+.reference{
+  justify-content: center;
+  align-items: center; /* 垂直方向の中央揃え */
+}
 .text-container {
   margin-left: 1em; /* 写真とタイトル・説明の間隔を設定 */
 }
