@@ -13,32 +13,7 @@ def vision_register():
     id = session['user'] 
     dva_vision_level = request.form.get('dva_vision_level')
     ref_vision_level = request.form.get('ref_vision_level')
-    age = db.get_age(id)
-    message =""
-    if age == 0:
-        message = "Levelは自分自身で決めましょう"
-    elif age == 1:
-        message = "10歳未満の平均levelは4です。"
-    elif age == 2:
-        message = "10代の平均levelは7です。"
-    elif age == 3:
-        message = "20代の平均levelは8です。"
-    elif age == 4:
-        message = "30代の平均levelは6です。"
-    elif age == 5:
-        message = "40歳未満の平均levelは6です。"
-    elif age == 6:
-        message = "50代の平均levelは6です。"
-    elif age == 7:
-        message = "60代の平均levelは5です。"
-    elif age == 8:
-        message = "70代の平均levelは5です。"
-    elif age == 9:
-        message = "80歳未満の平均levelは4です。"
-    elif age == 10:
-        message = "90代の平均levelは2です。"
-    elif age == 11:
-        message = "100歳以上も長生きに"
+    message = message_check()
         
     if dva_vision_level =='':
         result = db.vision_confirm(id)
@@ -57,6 +32,12 @@ def vision_register():
 def vision_changes():
     id = session['user'] 
     result = db.vision_confirm(id)
+    message = message_check()
+    return render_template('vision/vision_register.html', result=result,message=message)
+
+def message_check():
+    id=session['user']
+    age = db.get_age(id)
     age = db.get_age(id)
     message =""
     if age == 0:
@@ -83,4 +64,6 @@ def vision_changes():
         message = "90代の平均levelは2です。"
     elif age == 11:
         message = "100歳以上も長生きに"
-    return render_template('vision/vision_register.html', result=result,message=message)
+    else:
+        message = ""
+    return message
