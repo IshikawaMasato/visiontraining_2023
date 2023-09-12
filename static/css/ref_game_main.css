@@ -5,6 +5,16 @@
     font-weight: bold;
 }
 
+.levelup {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#clear_message {
+    padding-left: 2em;
+}
+
 #main {
     background: #00eeff;
     width: 390px;
