@@ -4,42 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../static/css/dva_game.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/footer.css')}}">
+
     <title>動体視力ゲーム</title>
 </head>
 <body>
-    <h1>動体視力ゲーム</h1>
-    <div>
+    {% include "top_header.html" %}
+    <h1 class="pop-up-menu">動体視力ゲーム</h1>
+    <div class="pop-up-menu">
         <button id="start">開始</button>
     </div>
-
-    <label class="open" for="pop-up">遊び方</label>
-    <input type="checkbox" id="pop-up">
-    <div class="overlay">
-        <div class="window">
-            <label class="close" for="pop-up">閉じる</label>
-            <h4>遊び方</h4>
-            <p>スタートボタンを押すと数字が左から右に移動します。</p>
-            <p>表示された数字と同じものを選択してください。</p>
-            <p>レベルが上がるごとにスピードが早くなります。</p>
-            <p>レベルは１０まであります。ゴール目指して頑張りましょう！</p>
+    <div id="pop_up_1">
+        <div class="pop-up-menu">
+            <label class="open" for="pop_up1">遊び方</label>
+        </div>
+        <input type="checkbox" id="pop_up1">
+        <div class="overlay">
+            <div class="window1">
+                <label class="close" for="pop_up1">閉じる</label>
+                <h4>遊び方</h4>
+                <p>スタートボタンを押すと数字が左から右に移動します。</p>
+                <p>表示された数字と同じものを選択してください。</p>
+                <p>レベルが上がるごとにスピードが早くなります。</p>
+                <p>レベルは１０まであります。ゴール目指して頑張りましょう！</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="pop_up_2">
+        <div class="pop-up-menu">
+            <label class="open" for="pop_up2">ランキング</label>
+        </div>
+        <input type="checkbox" id="pop_up2">
+        <div class="overlay">
+            <div class="window2">
+                <label class="close" for="pop_up2">閉じる</label>
+                <h4>ランキング一覧</h4>
+                <div class="ranking">
+                    <table>
+                        <tr>
+                            <th>1</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>ユーザー名</td>
+                            <td>スコア</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
-    <label class="open" for="pop-up">ランキング</label>
-    <input type="checkbox" id="pop-up">
-    <div class="overlay">
-        <div class="window">
-            <label class="close" for="pop-up">閉じる</label>
-            <h4>ランキング一覧</h4>
-        </div>
-    </div>
-    <div class="animation-area">
-        <img id="image" src="../../../static/images/dva_game_number_1.png" style="display:none">
-    </div>
+    <p id="output" style="display: none;"></p>
 
-    <p style="display:none">横切った数字はどれ？</p>
+<div class="animation-area">
+    <img id="image" src="../../../static/images/dva_game_number_1.png" style="display:none">
+</div>
 
-    <table id="button_table" style="display: none;">
+<p style="display:none" id="button_msg">横切った数字はどれ？</p>
+
+<table id="button_table" style="display: none;">
         <tr>
             <td><button id="button1" class="ans_botton">1</button></td>
             <td><button id="button2" class="ans_botton">2</button></td>
@@ -59,12 +127,16 @@
 
     <div id="correct" style="display:none">
         <h1>正解</h1>
-        <div>次のレベルへ</div>
     </div>
 
-    <div id="incorrect" style="display:none"></div>
-    <div id="incorrect_score" style="display:none"></div>
-    <div id="incorrect_level" style="display:none"></div>
-    <script src="../../../static/js/dva_game.js" async></script>
+    <div id="incorrect" style="display:none" class="answer"></div>
+    <div id="incorrect_score" style="display:none" class="answer"></div>
+    <div id="incorrect_level" style="display:none" class="answer"></div>
+    <div id="transition">
+        <button id="next_button" style="display:none">次のレベルへ</button>
+        <button id="top_button" style="display:none">トップへ戻る</button>
+        <script src="../../../static/js/dva_game.js" async></script>
+    </div>
+    {% include "footer.html"%}
 </body>
 </html>

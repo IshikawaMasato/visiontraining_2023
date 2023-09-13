@@ -2,7 +2,7 @@ from flask import render_template
 import os, psycopg2, string, random, hashlib
 
 def get_connection():
-    url = os.environ['DATABASE_URL']
+    url = os.environ['DATABASE_URL1']
     connection = psycopg2.connect(url)
     return connection
 
