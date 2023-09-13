@@ -1,8 +1,18 @@
 @charset "utf-8";
 
-.main_ref {
+#main_ref {
     text-align: center;
     font-weight: bold;
+}
+
+.levelup {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#clear_message {
+    padding-left: 2em;
 }
 
 #main {

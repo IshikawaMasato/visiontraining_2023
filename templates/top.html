@@ -1,5 +1,142 @@
+<<<<<<< Updated upstream
     {% extends "layout.html" %} 
     {% block title %}トップページ{% endblock %}
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/top.css') }}">
+    <title>トップページ</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-logo"><a href="top.html">ビジョトレ</a></h1>
+    
+        <nav class="header-nav">
+            <ul class="header-list">
+                <li class="header-item"><a href="ref_game.html">反射神経ゲーム</a></li>
+                <li class="header-item"><a href="dva_game.html">動体視力ゲーム</a></li>
+            </ul>
+        </nav>
+
+        <div class="account-icon" id="accountIcon"></div>
+        <div class="account-menu" id="accountMenu">
+          <div class="account-menu-item"><a href="{{ url_for('user.login_from') }}">ログイン</a></div>
+          <div class="account-menu-item"><a href="{{ url_for('user.register_form') }}">新規登録</a></div>
+        </div>
+
+        <script>
+            const accountIcon = document.getElementById("accountIcon");
+            const accountMenu = document.getElementById("accountMenu");
+          
+            accountIcon.addEventListener("click", () => {
+              accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
+            });
+          
+            document.addEventListener("click", (event) => {
+              if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
+                accountMenu.style.display = "none";
+              }
+            });
+        </script>
+    </header>
+    <div class="slideshow-container">
+      <div class="slide fade">
+          <img src="../static/images/slide1.png" alt="スライド1">
+      </div>
+      <div class="slide fade">
+          <img src="../static/images/slide2.png" alt="スライド2">
+      </div>
+    </div>
+
+  <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+    
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+    
+      slideIndex++;
+    
+      if (slideIndex > slides.length) {
+          slideIndex = 1;
+      } 
+    
+      slides[slideIndex - 1].style.display = "block";
+    
+      setTimeout(showSlides, 3000); // 3秒ごとにスライドを切り替える
+    }
+  </script>
+
+  <div class="midasi">
+    <h1 class="tit_font">ビジョントレーニングとは</h1>
+  </div>
+  <div class="photo-container">
+      <img src="../static/images/img_sport03.png" alt="写真の説明" class="photo">
+      <p class="description">
+      ビジョントレーニングとは、目の見るチカラ「視覚機能」を高めるためのトレーニングです。
+      スポーツビジョントレーニングとも呼ばれます。50年以上前からアメリカ合衆国で提唱、
+      開発されてきたトレーニング方法で、”オプトメトリスト”と呼ばれる眼科医とほぼ横並び
+      の国家資格制度に基づき北米や欧州を中心に多くの国々で広く導入されています。残念ながら
+      日本では公的な資格制度はまだありません。
+        ビジョントレーニングには、眼球を動かす筋肉、
+        眼筋を鍛えることで両目を使って目標物を正確に捉えたり、
+        目からの情報を脳で処理して体を動かす運動機能を向上する効果があります。
+        アスリート、スポーツ選手のパフォーマンス向上、発達期の子供の視覚機能の向上、
+        発達障害の子どもの学力・運動能力の向上、ディスクレシア（識字障碍）の治療、
+        中高齢者の運動機能の維持回復などに有効であるとして、日本でも導入が広がりつつあります。
+      </p>
+  </div>
+
+  <div class="midasi">
+    <h1 class="tit_font">楽しくゲームでビジョトレ</h1>
+  </div>
+
+  <div class="photo-container">
+      <img class="photo" src="../static/images/game_software_cassette.png" alt="写真1の説明">
+        <div class="text-container">
+          <h2 class="title">反射神経ゲーム</h2>
+          <p class="description">ジョビジョビくんを<br>
+            素早く押そう！<br>
+            枠内に表示されたジョビジョビくんを押してください。<br>
+            5回押したらレベルアップ！<br>
+            時間内にすべてのジョビジョビくんを押しましょう！</p>
+            <div class="button005">
+              <a href="#">プレイする</a>
+            </div>
+        </div>
+  </div>
+
+  <div class="photo-container">
+      <img class="photo" src="../static/images/game_software_cassette.png" alt="写真2の説明">
+      <div class="text-container">
+          <h2 class="title">動体視力ゲーム</h2>
+          <p class="description">ジョビジョビくんが
+            持っていた数字を読み取って押してください。<br>
+            レベルが上がるとスピードアップ！<br>
+            動体視力が試されます。</p>
+          <div class="button005">
+            <a href="#">プレイする</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="midasi">
+    <h1 class="tit_font">自宅で体を動かしてビジョトレ</h1>
+  </div>
+  <p id="description">基本的なビジョントレーニング方法なら誰でも、いつでも、どこでも簡単に<br>
+    スポーツビジョンのトレーニングを行なうことができます。<br>
+    コツは、1日に5～10分程度、3ヶ月間続けることです。年齢やレベルにかかわらず<br>
+    その人の現状から必ず見るチカラを向上することができます。<br>
+    主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です。</p>
+>>>>>>> Stashed changes
 
 
     {% include "top_header.html" %}
