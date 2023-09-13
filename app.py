@@ -9,9 +9,12 @@ app = Flask(__name__)
 app.secret_key = ''.join(random.choices(string.ascii_letters, k=256))
 
 app.register_blueprint(user_bp)
+<<<<<<< Updated upstream
 app.register_blueprint(dva_game_bp)
 app.register_blueprint(vision_bp)
 # app.permanent_session_lifetime = timedelta(minutes=3)
+=======
+>>>>>>> Stashed changes
 
 @app.route('/')
 def index():

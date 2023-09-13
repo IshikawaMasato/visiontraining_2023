@@ -3,6 +3,7 @@ import db,random,string
 
 user_bp = Blueprint('user', __name__, url_prefix='/user')
 
+<<<<<<< Updated upstream
 @user_bp.route('/login_form')
 def login_form():
     return render_template('user/login.html')
@@ -41,6 +42,23 @@ def login_exe():
         error = 'ユーザIDもしくはパスワードが違います。'
         return render_template('user/login.html',error=error,user_data=user_data)
     
+=======
+@user_bp.route('/login_from')
+def login_from():
+    return render_template('user/login.html')
+
+@user_bp.route('/', methods=['POST'])
+def login():
+    user_id = request.form.get('user_id')
+    password = request.form.get('password')
+
+    if db.login_exe(user_id, password):
+        session['user'] = True
+        return render_template('user.html')
+    else :
+        return render_template('user/login.html')
+
+>>>>>>> Stashed changes
 @user_bp.route('/register_form')
 def register_form():
     return render_template('user/account_register.html')
@@ -70,6 +88,7 @@ def register_confirm():
     user_id=request.form.get('user_id')
     password1=request.form.get('password1')
     password2=request.form.get('password2')
+<<<<<<< Updated upstream
 
     user_data = {'name':name,'age':age,'gender':gender,'mail':mail,'user_id':user_id,'password1':password1,'password2':password2,}
 
@@ -98,6 +117,11 @@ def register_confirm():
         return render_template('user/account_register.html', error=error,user_data=user_data)
 
 
+=======
+    
+    user_data = {'name':name,'age':age,'gender':gender,'mail':mail,'user_id':user_id,'password1':password1,'password2':password2,}
+    
+>>>>>>> Stashed changes
     return render_template('user/account_confirm.html',user_data=user_data)
 
 

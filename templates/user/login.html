@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/login.css')}}">
     <title>ログイン画面</title>
@@ -31,5 +32,16 @@
         <p class="message"><a href="{{url_for('user.register_form')}}">新規登録</a></p>
     </form>
     </div>
+=======
+    <title>ログインページ</title>
+</head>
+<body>
+    <h1>ログインページ</h1>
+    <form action="{{ url_for('user.login') }}" method="post">
+        ログインID:<input type="text" name="user_id"><br>
+        パスワード：<input type="password" name="password"><br>
+        <button type="submit">ログイン</button>
+    </form>
+>>>>>>> Stashed changes
 </body>
 </html>
