@@ -35,21 +35,13 @@ def insert_user(name, age, gender, mail, user_id, password1):
 
     return count
 
-<<<<<<< Updated upstream
 def login(user_id, password):
-=======
-def login_exe(user_id, password):
->>>>>>> Stashed changes
     sql = 'SELECT password, salt FROM vision_accounts WHERE user_id = %s'
     flg = False
 
     try :
         connection = get_connection()
         cursor = connection.cursor()
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         cursor.execute(sql, (user_id,))
         user = cursor.fetchone()
 
@@ -66,7 +58,6 @@ def login_exe(user_id, password):
         cursor.close()
         connection.close()
 
-<<<<<<< Updated upstream
     return flg
 
 def get_id(user_id):
@@ -116,6 +107,3 @@ def vision_exechange(id, dva_vision_level, ref_vision_level):
     connection.commit()  # コミットを忘れずに
     cursor.close()
     connection.close()
-=======
-    return flg
->>>>>>> Stashed changes
