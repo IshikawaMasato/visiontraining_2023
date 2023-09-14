@@ -1,10 +1,10 @@
 @charset "utf-8";
 
-.view {
+#view_levelup, #view_retirement, #view_allclear {
     text-align: center;
 }
 
-.view .message {
+#view_levelup .message, #view_retirement .message, #view_allclear .message {
     font-size: 70px;
 }
 
@@ -12,14 +12,14 @@
     font-size: 30px;
 }
 
-.button {
-    display: flex;
-    flex-direction: column;
+#next, #title1, #title2, #title3 {
+    /* display: flex;
+    flex-direction: column; */
     align-items: center;
     justify-content: center;
 }
 
-.button button {
+.button button, #next, #title1 {
     width: 230px;
     font-size: 30px;
 }

@@ -1,46 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/top.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
-    <title>ユーザページ</title>
-</head>
-<body>
-<header id="header" class="header">
-    <h1 id="header" class="header-logo"><a href={{ url_for('index') }}>ビジョトレ</a></h1>
+    {% extends "layout.html" %} 
+    {% block title %}ユーザーページ{% endblock %}
 
-    <nav class="header-nav">
-        <ul class="header-list">
-          <li class="header-item"><a href="ref_game.html">反射神経ゲーム</a></li>
-          <li class="header-item"><a href="dva_game.html">動体視力ゲーム</a></li>
-          <li class="header-item"><a href="{{ url_for('vision_register.vision_changes') }}">目標設定</a></li> 
-        </ul>
-    </nav>
 
-    <div class="account-icon" id="accountIcon"></div>
-    <div class="account-menu" id="accountMenu">
-      <div class="account-menu-item"><a href="{{ url_for('user.logout') }}">ログアウト</a></div>
-      <div class="account-menu-item"><a href="account_delete.html">退会</a></div>
-    </div>
-
-    <script>
-        const accountIcon = document.getElementById("accountIcon");
-        const accountMenu = document.getElementById("accountMenu");
-      
-        accountIcon.addEventListener("click", () => {
-          accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-        });
-      
-        document.addEventListener("click", (event) => {
-          if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-            accountMenu.style.display = "none";
-          }
-        });
-    </script>
-</header>
-  {% extends "visiontraining_video.html" %} 
-</body>
-</html>
+    {% include "user/user_header.html" %}
+    {% include "user/user_content.html"%}
+    {% include "visiontraining_video.html"%}
+    {% include "footer.html"%}

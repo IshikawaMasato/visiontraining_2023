@@ -1,5 +1,5 @@
 .vision {
-    margin: 10rem,auto,auto;
+    margin: auto;
     height:50%;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ meter::-webkit-meter-bar {
     align-items: center;
     margin: 0 auto;
     max-width: 40%;
-    padding: 10px 25px;
+    padding: 0;
     color: #FFF;
     transition: 0.3s ease-in-out;
     font-weight: 60%;
@@ -45,3 +45,10 @@ meter::-webkit-meter-bar {
   .inputrange{
     width: 50%;
   }
+
+.vision-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center; 
+}

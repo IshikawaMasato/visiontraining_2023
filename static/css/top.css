@@ -1,10 +1,16 @@
+body {
+  max-width: 100%;
+  margin: auto;
+  padding:0;
+}
 .slideshow-container {
     position: relative;
     max-width: 100%;
+    max-height: 100%;
     overflow: hidden;
     margin: auto;
-    width: 900px;
-    height: 650px;
+    width: 60rem;
+    height: 50rem;
 }
 
 .slide {
@@ -31,7 +37,7 @@ img {
 }
   
 .tit_font {
-  margin-top: 100px;
+  margin-top: 0.2rem;
   font-family: 'Kosugi Maru', sans-serif;
   font-size: 30px;
   margin-bottom: 0.2rem;
@@ -59,18 +65,25 @@ img {
   margin-bottom: 20px; /* セクション間の余白を設定 */
 }
 .photo {
-  width: 300px;
+  width: 20rem;
   height: auto;
 }
+.reference{
+  justify-content: center;
+  align-items: center; /* 垂直方向の中央揃え */
+}
 .text-container {
-  margin-left: 20px; /* 写真とタイトル・説明の間隔を設定 */
+  margin-left: 1em; /* 写真とタイトル・説明の間隔を設定 */
 }
 .title {
-  font-size: 24px;
-  margin-bottom: 10px; /* タイトルと説明の間隔を設定 */
+  font-size: 4rem;
+  margin-bottom: 0.5rem; /* タイトルと説明の間隔を設定 */
 }
 .description {
-  font-size: 16px;
+  padding-left:1em;
+  width: 70%;
+  font-family: system-ui;
+  font-size: 1.5em;
 }
 
 .button005 a {
@@ -98,3 +111,4 @@ img {
   font-size: 18px;
   line-height: 1.6;
 }
+

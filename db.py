@@ -35,14 +35,21 @@ def insert_user(name, age, gender, mail, user_id, password1):
 
     return count
 
+<<<<<<< Updated upstream
 def login(user_id, password):
+=======
+def login_exe(user_id, password):
+>>>>>>> Stashed changes
     sql = 'SELECT password, salt FROM vision_accounts WHERE user_id = %s'
     flg = False
 
     try :
         connection = get_connection()
         cursor = connection.cursor()
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         cursor.execute(sql, (user_id,))
         user = cursor.fetchone()
 
@@ -59,6 +66,7 @@ def login(user_id, password):
         cursor.close()
         connection.close()
 
+<<<<<<< Updated upstream
     return flg
 
 def get_id(user_id):
@@ -74,6 +82,20 @@ def get_id(user_id):
 
     return accout_id
     
+#平均的な目標を出すための年齢を取得
+def get_age(user_id):
+    sql = 'SELECT age FROM vision_accounts WHERE id = %s'
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(sql, (user_id,))
+    age = cursor.fetchone()
+    account_age = int(age[0])
+    cursor.close()
+    connection.close()
+
+    return account_age
+
 # 現在と目標のレベルを取得
 def vision_confirm(id):
     connection = get_connection()
@@ -94,3 +116,6 @@ def vision_exechange(id, dva_vision_level, ref_vision_level):
     connection.commit()  # コミットを忘れずに
     cursor.close()
     connection.close()
+=======
+    return flg
+>>>>>>> Stashed changes
