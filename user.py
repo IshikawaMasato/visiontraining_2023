@@ -3,7 +3,6 @@ import db,random,string
 
 user_bp = Blueprint('user', __name__, url_prefix='/user')
 
-
 @user_bp.route('/login_form')
 def login_form():
     return render_template('user/login.html')
@@ -44,6 +43,7 @@ def login_exe():
         return render_template('user/login.html',error=error,user_data=user_data)
     
 
+
 @user_bp.route('/login_from')
 def login_from():
     return render_template('user/login.html')
@@ -58,7 +58,6 @@ def login():
         return render_template('user.html')
     else :
         return render_template('user/login.html')
-
 
 @user_bp.route('/register_form')
 def register_form():
@@ -90,7 +89,6 @@ def register_confirm():
     password1=request.form.get('password1')
     password2=request.form.get('password2')
 
-
     user_data = {'name':name,'age':age,'gender':gender,'mail':mail,'user_id':user_id,'password1':password1,'password2':password2,}
 
     if name=='':
@@ -116,12 +114,6 @@ def register_confirm():
     if password1 != password2:
         error = 'パスワードとパスワード(確認用)には同じパスワードを入力してください。'
         return render_template('user/account_register.html', error=error,user_data=user_data)
-
-
-
-    
-    user_data = {'name':name,'age':age,'gender':gender,'mail':mail,'user_id':user_id,'password1':password1,'password2':password2,}
-    
 
     return render_template('user/account_confirm.html',user_data=user_data)
 
