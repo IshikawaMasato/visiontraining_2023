@@ -99,4 +99,8 @@ def register_confirm():
 
 @user_bp.route('/password_publish')
 def password_publish():
-    render_template('user/password_publish.html')
+    return render_template('user/password_publish.html')
+    
+@user_bp.route('/password_change')
+def password_change():
+    return render_template('user/password_change.html')
