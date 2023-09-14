@@ -1,0 +1,76 @@
+/* ビデオ要素のスタイル */
+.video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* カスタムビデオプレーヤーのスタイル */
+  .custom-video-player {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* ビデオプレーヤーのステート情報 */
+  .video-state {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* コントロールボタン */
+  .controls button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px;
+  }
+  
+/* スライダー */
+.playback {
+    background: #8acdff;
+    border: solid 3px #dff1ff;
+    border-radius: 10px;
+    height: 24px; 
+    width: 500%; /* 幅を変更 */
+    cursor: pointer;
+  }
+  
+  .playback::-webkit-slider-thumb {
+    background: #53aeff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  .playback::-moz-range-thumb {
+    background: #53aeff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* スライダーの値表示 */
+  #durationDisplay,
+  #currentTimeDisplay,
+  #statusDisplay {
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  /* ボリュームスライダー */
+  #volumeSliders {
+    width: 100%;
+  }
+  
+  /* レンジコンテナ */
+  #RangeContainer {
+    width: 100%;
+    text-align: center;
+  }
