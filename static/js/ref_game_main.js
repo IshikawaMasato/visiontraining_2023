@@ -13,6 +13,7 @@ var intervalTime = 1;
 var coolDiff;
 var score = 0;
 var log = true;
+var cool_log = true;
 let random;
 let number;
 var message = '開始前';
@@ -85,10 +86,15 @@ document.addEventListener("DOMContentLoaded", function() {
             message = '次のレベルへ';
             console.log(message);
         } else {
-            limitTime = 0;
-            document.getElementById('main').remove();
-            message = '不正解';
-            console.log(message);
+            if( cool_log === true ) {
+                cool_log = false;
+            } else {
+                limitTime = 0;
+                document.getElementById('main').remove();
+                message = '不正解';
+                console.log(message);
+            }
+            
         }
     }
 
@@ -109,6 +115,7 @@ var countdown = function () {
         startTime = Date.now();
         message = '';
     }
+    cool_log = false;
     timeDiff = Date.now() - startTime;
     timeDiff = limitTime - (timeDiff / 1000);
     timeDiff*=10;
@@ -126,6 +133,7 @@ var countdown = function () {
 var cooldown = function () {    
     if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         message = 'クールダウン';
+        cool_log = true;
         startTime = Date.now();
     }
     coolDiff = Date.now() - startTime;
@@ -174,6 +182,7 @@ function timer_switch() {
         element2.style.display = '';
         element3.style.display = 'none';
         coolDiff = 0;
+        cool_log = true;
     } else if( message === 'ゲームクリア！') {
         score = 100;
         document.getElementById('score2').innerText = score;
