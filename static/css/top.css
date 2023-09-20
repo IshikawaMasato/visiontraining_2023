@@ -59,10 +59,11 @@ img {
 }
 
 .photo-container {
-  display: flex; /* Flexboxを使用して要素を横に配置 */
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center; /* 垂直方向の中央揃え */
-  margin-bottom: 20px; /* セクション間の余白を設定 */
+  align-items: center;
+  margin-bottom: 20px;
 }
 .photo {
   width: 20rem;
