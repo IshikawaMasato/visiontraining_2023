@@ -3,7 +3,7 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
                 playerVars: {
-                    playlist: 'g9MUolW5qBw,u3pyJ2DeklU,A6yNMFZgfK8,HvU3g3M0fcs,-vRahwR7-qY', // 再生リストのID
+                    playlist: 'g9MUolW5qBw,u3pyJ2DeklU,HvU3g3M0fcs,75hSQAJySyY,ZuIcheuTfew,-vRahwR7-qY,_6Y_SkGQjck', // 再生リストのID
                     listType: 'playlist', // 再生リストタイプ指定
                     playsinline: 0,
                     modestbranding: 0,

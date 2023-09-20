@@ -2,7 +2,8 @@
     width: 100%;
     height: auto;
     max-width: 100%;
-}
+
+    }
 .video-content {
     display: flex; /* Flexboxを使用して要素を横に配置 */
     justify-content: center;
