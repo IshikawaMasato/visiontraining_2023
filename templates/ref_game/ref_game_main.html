@@ -9,39 +9,7 @@
     <title>反射神経ゲーム</title>
 </head>
 <body>
-    <header id="header" class="header">
-        <h1 id="header" class="header-logo"><a href="top.html">ビジョトレ</a></h1>
-    
-        <nav class="header-nav">
-            <ul class="header-list">
-              <li class="header-item"><a href="ref_game.html">反射神経ゲーム</a></li>
-              <li class="header-item"><a href="dva_game.html">動体視力ゲーム</a></li>
-                <li class="header-item"><a href="vision_register.html">目標設定</a></li>
-            </ul>
-        </nav>
-
-        <div class="account-icon" id="accountIcon"></div>
-        <div class="account-menu" id="accountMenu">
-          <div class="account-menu-item"><a href="#">ログアウト</a></div>
-          <div class="account-menu-item"><a href="account_delete.html">退会</a></div>
-        </div>
-
-        <script>
-            const accountIcon = document.getElementById("accountIcon");
-            const accountMenu = document.getElementById("accountMenu");
-          
-            accountIcon.addEventListener("click", () => {
-              accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-            });
-          
-            document.addEventListener("click", (event) => {
-              if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-                accountMenu.style.display = "none";
-              }
-            });
-        </script>
-    </header>
-
+    {% include "top_header.html" %}
     <h2 id="main_ref">
       <span class="level">Level</span><sapn id="level_now">0</sapn>
       <sapn class="counts">現在の進捗</span>&nbsp;<span id="counter">0</span><sapn>/5</span>
@@ -73,8 +41,8 @@
     <div id="view_retirement">
         <h1 class="message">お疲れ様！</h1>
         <div class="result">
-            スコア：<span id="score1">◯◯◯</span><br>
-            レベル：Level<span id="level">◯◯◯</span>
+            スコア：<span id="score1"></span><br>
+            レベル：Level<span id="level"></span>
         </div>
         <div class="button">
           <a href="{{ url_for('ref_game.ref_game') }}"><button id="title2">タイトルに戻る</button></a>
@@ -84,8 +52,8 @@
     <div id="view_allclear">
         <h1 class="message">おめでとう！</h1>
         <div class="result">
-            スコア：<span id="score2">◯◯◯</span><br>
-            レベル：Level10
+            スコア：<span id="score2"></span><br>
+            レベル：Level<span id="level"></span>
         </div>
         <div class="button">
           <a href="{{ url_for('ref_game.ref_game') }}"><button id="title3">タイトルに戻る</button></a>

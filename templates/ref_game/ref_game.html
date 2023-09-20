@@ -8,39 +8,7 @@
     <title>反射神経ゲーム</title>
 </head>
 <body>
-    <header id="header" class="header">
-        <h1 id="header" class="header-logo"><a href="top.html">ビジョトレ</a></h1>
-    
-        <nav class="header-nav">
-            <ul class="header-list">
-                <li class="header-item"><a href="{{ url_for('ref_game.ref_game')}}">反射神経ゲーム</a></li>
-                <li class="header-item"><a href="{{ url_for('dva_game.dva_game')}}">動体視力ゲーム</a></li>
-                <li class="header-item"><a href="{{ url_for('vision_register.vision_changes') }}">目標設定</a></li> 
-            </ul>
-        </nav>
-
-        <div class="account-icon" id="accountIcon"></div>
-        <div class="account-menu" id="accountMenu">
-          <div class="account-menu-item"><a href="{{ url_for('user.logout') }}">ログアウト</a></div>
-          <div class="account-menu-item"><a href="account_delete.html">退会</a></div>
-        </div>
-
-        <script>
-            const accountIcon = document.getElementById("accountIcon");
-            const accountMenu = document.getElementById("accountMenu");
-          
-            accountIcon.addEventListener("click", () => {
-              accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-            });
-          
-            document.addEventListener("click", (event) => {
-              if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-                accountMenu.style.display = "none";
-              }
-            });
-        </script>
-    </header>
-
+    {% include "top_header.html" %}
     <div class="return">
         <a href="{{ url_for('user.user') }}"><button>トップページに戻る</button></a>
     </div>
