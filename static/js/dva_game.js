@@ -47,7 +47,7 @@ let imageNo = Math.floor(Math.random() * images.length)
 imageArea.src = images[imageNo]; //画像のランダム表示
 
 let level = 1;
-let max_level = 2;
+let max_level = 10;
 let exe_time = 2000;
 let dva_geme_score = 0
 let currentGameState = GameState.init;
@@ -81,8 +81,7 @@ function init() {
       }
     });
   }
-
-  SetGameState(GameState.countDown);
+  ToggleStartView(true); //初期にスタート画面を表示
 }
 
 // カウントダウンプロセス
@@ -188,10 +187,10 @@ function ToggleStartView(isShow) {
   pop_up_1.style.display = display; // 遊び方を非表示
   pop_up_2.style.display = display; // ランキングを非表示
 
-  correct.style.display = display; // 正解の非表示
-  incorrect.style.display = display; // 不正解の非表示
-  incorrect_score.style.display = display; // 不正解のスコア非表示
-  incorrect_level.style.display = display; // 不正解のレベル非表示
+  correct.style.display != display; // 正解の非表示
+  incorrect.style.display != display; // 不正解の非表示
+  incorrect_score.style.display != display; // 不正解のスコア非表示
+  incorrect_level.style.display != display; // 不正解のレベル非表示
 }
 
 // ゲーム画面表示切替
