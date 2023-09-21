@@ -1,33 +1,6 @@
     {% extends "layout.html" %} 
     {% block title %}ユーザーページ{% endblock %}
 
-
-
-    <div class="account-icon" id="accountIcon"></div>
-    <div class="account-menu" id="accountMenu">
-      <div class="account-menu-item"><a href="{{ url_for('user.logout') }}">ログアウト</a></div>
-      <div class="account-menu-item"><a href="{{ url_for('user.account_delete') }}">退会</a></div>
-    </div>
-
-    <script>
-        const accountIcon = document.getElementById("accountIcon");
-        const accountMenu = document.getElementById("accountMenu");
-      
-        accountIcon.addEventListener("click", () => {
-          accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-        });
-      
-        document.addEventListener("click", (event) => {
-          if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-            accountMenu.style.display = "none";
-          }
-        });
-    </script>
-</header>
-  {% extends "visiontraining_video.html" %} 
-</body>
-</html>
-
     {% include "user/user_header.html" %}
     {% include "user/user_content.html"%}
     {% include "visiontraining_video.html"%}
