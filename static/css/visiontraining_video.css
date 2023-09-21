@@ -1,8 +1,9 @@
 .video-main {
     width: 100%;
-    height: auto;
+    height: 20rem;
     max-width: 100%;
-}
+
+    }
 .video-content {
     display: flex; /* Flexboxを使用して要素を横に配置 */
     justify-content: center;
@@ -316,3 +317,19 @@ input[type="range"] {
         padding: 5px;
 
 }
+
+.video-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .video-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

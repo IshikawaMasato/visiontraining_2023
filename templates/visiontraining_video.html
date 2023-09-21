@@ -9,52 +9,28 @@
     スポーツビジョンのトレーニングを行なうことができます。<br>
     コツは、1日に5～10分程度、3ヶ月間続けることです。年齢やレベルにかかわらず<br>
     その人の現状から必ず見るチカラを向上することができます。<br>
-    主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です。</p>
-    <div class="video-bar">
-  <video id="player" class="video"></video>
-<div id="videoInfo" class="video-state">
-  <div id="progressContainer">
-      <div id="progressBar"></div>
-  </div>
-  <p>全体の時間: <span id="totalTime">0:00</span></p>
-  <p>現在の再生時間: <span id="currentTime">0:00</span></p>
-  <p>再生状態: <span id="playerState">-</span></p>
-  <p>音量:<input type="range" id="volumeSlider" min="0" max="100" step="1" value="100"/></p>
-
-</div>
-<div class="control-menu"> 
-<button id="playButton" class="video_play"></button>
-<button id="pauseButton" class="video_pause"></button>
-<button id="backskipButton" class="video_backskip"></button>
-<button id="jaupskipButton" class="video_jaupskip"></button>
-<button id="backvideoButton" class="back_video"></button>
-<button id="nextvideoButton" class="next_video"></button>
-</div>
-</div> 
-
-<div class="custom-video-player">
-<video id="video" class="video" controls>
-  <source src="{{url_for('static', filename='/video/dva_gameplay.mp4')}}" type="video/mp4" class="video" />
-  <p>このブラウザーはvideo要素に対応していません。<a href="{{url_for('static', filename='/video/dva_gameplay.mp4.mp4')}}">動画ファイルへのリンク</a>から御覧ください。</p>
-</video>
-<div class="video-state">
-  <div id="RangeContainer">
-  <input type="range" id="playback" class="playback" >
-  </div>
-<p>全体の時間: <span id="durationDisplay">0:00</span></p>
-    <p>現在の再生時間: <span id="currentTimeDisplay">0:00</span></p>
-    <p>再生状態: <span id="statusDisplay">-</span></p>
-    <p>音量:<input type="range" id="volumeSliders" min="0" max="100" step="1" value="100"/></p>
-    
-  </div>
-    <div class="controls">
-      <button id="playButtons" class="video_play"></button>
-      <button id="pauseButtons" class="video_pause"></button>
-      <button id="prevButton" class="video_backskip"></button>
-      <button id="nextButton" class="video_jaupskip"></button>
+    主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です.</p>
+  <div class="video-bar">
+    <div id="player" class="video-main"></div>
+    <div id="videoInfo" class="video-state">
+      <div id="progressContainer">
+        <div id="progressBar"></div>
+      </div>
+      <p>全体の時間: <span id="totalTime">0:00</span></p>
+      <p>現在の再生時間: <span id="currentTime">0:00</span></p>
+      <p>再生状態: <span id="playerState">-</span></p>
+      <p>音量:<input type="range" id="volumeSlider" min="0" max="100" step="1" value="100"/></p>
     </div>
-
+    <div class="controls">
+      <button id="playButton" class="video_play"></button>
+      <button id="pauseButton" class="video_pause"></button>
+      <button id="backskipButton" class="video_backskip"></button>
+      <button id="jaupskipButton" class="video_jaupskip"></button>
+      <button id="backvideoButton" class="back_video"></button>
+      <button id="nextvideoButton" class="next_video"></button>
+    </div>
+  </div>
+</div>
 <script src="{{ url_for('static', filename='js/visiontraining_video.js') }}"></script>
-<script src="{{ url_for('static', filename='js/ref_game_play_video.js') }}"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 {% endblock %}

@@ -1,5 +1,6 @@
 'use strict';
 
+// 使用する変数
 let counter = 0;
 let maxcount = 5;
 let level = 1;
@@ -34,6 +35,7 @@ const buttonNumber = {
     'next': 9
 }
 
+// ボタン押下時の処理
 document.addEventListener("DOMContentLoaded", function() {
     function CountUp() {
         console.log(`id名「${this.id}」のボタンを押しました。`);
@@ -90,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // ボタン押下後の処理
     buttons.forEach((button) => {
         button.addEventListener('click', CountUp);
     });
@@ -101,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1);
 });
 
+// カウントダウン処理
 var countdown = function () {
     if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！', '次のレベルへ'].includes(message) ) {
         limitTime = limit[level-1];
@@ -120,6 +122,7 @@ var countdown = function () {
     }
 }
 
+// クールダウンタイム処理
 var cooldown = function () {    
     if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
         message = 'クールダウン';
@@ -133,6 +136,7 @@ var cooldown = function () {
     console.log('クールダウン：残り' + coolDiff + '秒');
 }
 
+// タイマー切り替え(カウントダウン・クールダウン)
 function timer_switch() {
     element1.style.display = '';
     element2.style.display = '';
@@ -159,8 +163,6 @@ function timer_switch() {
         element1.style.display = 'none';
         element2.style.display = 'none';
         element3.style.display = '';
-        // limitTime = limit[level - 1];
-        // startTime = Date.now();
     } else if( message === '次のレベルへ') {
         limitTime = limit[level - 1];
         startTime = Date.now();
@@ -175,6 +177,7 @@ function timer_switch() {
     } else if( message === 'ゲームクリア！') {
         score = 100;
         document.getElementById('score2').innerText = score;
+        document.getElementById('level').innerText = level;
         element1.style.display = 'none';
         element2.style.display = 'none';
         element5.style.display = '';
@@ -189,7 +192,6 @@ function timer_switch() {
             }
             countdown();
             if(timeDiff <= 0) {
-                // document.getElementById('timer').innerText = "0.0秒";
                 element1.style.display = 'none';
                 element2.style.display = 'none';
                 element4.style.display = '';
@@ -241,12 +243,14 @@ function Random_Image() {
 
 setInterval(Random_Image, limitTime*1000);
 
+// タイマースタート処理
 function startTimer() {
     limitTime = limit[level-1];
     startTime = Date.now();
     countdown();
 }
 
+// 画像削除処理(１回ごとに実行)
 function Delete_Image() {
     console.log('delete');
     document.querySelector('img').remove();

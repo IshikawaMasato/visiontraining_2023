@@ -3,44 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../static/css/ref_game.css">
-    <link rel="stylesheet" href="../../../static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/ref_game.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/header.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visiontraining_video.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/game_play_video.css') }}">    
+    <script src="{{ url_for('static', filename='js/dva_game_play_video.js') }}" async></script>
     <title>反射神経ゲーム</title>
 </head>
 <body>
-    <header id="header" class="header">
-        <h1 id="header" class="header-logo"><a href="top.html">ビジョトレ</a></h1>
-    
-        <nav class="header-nav">
-            <ul class="header-list">
-                <li class="header-item"><a href="{{ url_for('ref_game.ref_game')}}">反射神経ゲーム</a></li>
-                <li class="header-item"><a href="{{ url_for('dva_game.dva_game')}}">動体視力ゲーム</a></li>
-                <li class="header-item"><a href="{{ url_for('vision_register.vision_changes') }}">目標設定</a></li> 
-            </ul>
-        </nav>
-
-        <div class="account-icon" id="accountIcon"></div>
-        <div class="account-menu" id="accountMenu">
-          <div class="account-menu-item"><a href="{{ url_for('user.logout') }}">ログアウト</a></div>
-          <div class="account-menu-item"><a href="account_delete.html">退会</a></div>
-        </div>
-
-        <script>
-            const accountIcon = document.getElementById("accountIcon");
-            const accountMenu = document.getElementById("accountMenu");
-          
-            accountIcon.addEventListener("click", () => {
-              accountMenu.style.display = accountMenu.style.display === "none" ? "block" : "none";
-            });
-          
-            document.addEventListener("click", (event) => {
-              if (!accountIcon.contains(event.target) && !accountMenu.contains(event.target)) {
-                accountMenu.style.display = "none";
-              }
-            });
-        </script>
-    </header>
-
+    {% include "top_header.html" %}
     <div class="return">
         <a href="{{ url_for('user.user') }}"><button>トップページに戻る</button></a>
     </div>
@@ -57,11 +29,30 @@
         <div class="window1">
             <label class="close" for="pop-up1">閉じる</label>
             <h4>遊び方</h4>
-            <p>スタートボタンを押すと９個の枠内のいずれかにジョビジョビくんが表示されます。</p>
-            <p>表示されたジョビジョビくんを制限時間内に素早く押してください。<br>
-                (１レベルにつき５回、１回押すごとに制限時間がリセット・５回押せば、レベルクリア)</p>
-            <p>レベルが上がるごとに制限時間が短くなります。</p>
+            <p>スタートボタンを押すと９個の枠内のいずれかにジョビジョビくんが表示されます。
+            表示されたジョビジョビくんを制限時間内に素早く押してください。<br>
+                (１レベルにつき５回、１回押すごとに制限時間がリセット)
+            レベルが上がるごとに制限時間が短くなります。
             <p>レベルは１０まであります。ゴール目指して頑張りましょう！</p>
+            <div class="custom-video-player">
+                <video id="video" class="video" controls>
+                    <source src="{{url_for('static', filename='/video/dva_gameplay.mp4')}}" type="video/mp4" class="video" />
+                    <p>このブラウザーはvideo要素に対応していません。<a href="{{url_for('static', filename='/video/dva_gameplay.mp4.mp4')}}">動画ファイルへのリンク</a>から御覧ください。</p>
+                </video>
+                <div class="video-state">
+                    <div id="RangeContainer">
+                        <input type="range" id="playback" class="playback" >
+                    </div>
+                    <p>全体の時間: <span id="durationDisplay">0:00</span></p>
+                    <p>現在の再生時間: <span id="currentTimeDisplay">0:00</span></p>
+                </div>
+                    <div class="controls">
+                        <button id="playButtons" class="video_play"></button>
+                        <button id="pauseButtons" class="video_pause"></button>
+                        <button id="prevButton" class="video_backskip"></button>
+                        <button id="nextButton" class="video_jaupskip"></button>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="pop-up-menu">
@@ -129,5 +120,6 @@
         </div>
         </div>
     </div>
+    {% include "footer.html"%}
 </body>
 </html>

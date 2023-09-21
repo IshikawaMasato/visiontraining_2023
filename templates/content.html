@@ -33,25 +33,19 @@
 <div class="midasi">
   <h1 class="tit_font">ビジョントレーニングとは</h1>
 </div>
-<div class="photo-container">
-    <div class="photo">
-      <img src="../static/images/img_sport03.png" alt="写真の説明" class="photo">
-    <p class="reference">引用:ビジョントレーニングとその方法ビジョントレーニングメガネVisionup®（ビジョナップ®）の紹介と販売のサイト</p>
-    </img>
+<div class="photo-container" id="photo-container">
+  <div class="photo" id="photo">
+    <img src="../static/images/img_sport03.png" alt="写真の説明" class="photo">
+    <p>引用:ビジョントレーニングとその方法ビジョントレーニングメガネVisionup®（ビジョナップ®）の紹介と販売のサイト</p>
   </div>
-    <p class="description">
-    ビジョントレーニングとは、目の見るチカラ「視覚機能」を高めるためのトレーニングです。
-    スポーツビジョントレーニングとも呼ばれます。50年以上前からアメリカ合衆国で提唱、
-    開発されてきたトレーニング方法で、”オプトメトリスト”と呼ばれる眼科医とほぼ横並び
-    の国家資格制度に基づき北米や欧州を中心に多くの国々で広く導入されています。残念ながら
-    日本では公的な資格制度はまだありません。
-      ビジョントレーニングには、眼球を動かす筋肉、
-      眼筋を鍛えることで両目を使って目標物を正確に捉えたり、
-      目からの情報を脳で処理して体を動かす運動機能を向上する効果があります。
-      アスリート、スポーツ選手のパフォーマンス向上、発達期の子供の視覚機能の向上、
-      発達障害の子どもの学力・運動能力の向上、ディスクレシア（識字障碍）の治療、
-      中高齢者の運動機能の維持回復などに有効であるとして、日本でも導入が広がりつつあります。
+  <div class="description" id="description">
+    <p>
+      ビジョントレーニングとは、目の見るチカラ「視覚機能」を高めるためのトレーニングです。スポーツビジョントレーニングとも呼ばれます。50年以上前からアメリカ合衆国で提唱、開発されてきたトレーニング方法で、”オプトメトリスト”と呼ばれる眼科医とほぼ横並びの国家資格制度に基づき北米や欧州を中心に多くの国々で広く導入されています。残念ながら日本では公的な資格制度はまだありません。
     </p>
+    <p>
+      ビジョントレーニングには、眼球を動かす筋肉、眼筋を鍛えることで両目を使って目標物を正確に捉えたり、目からの情報を脳で処理して体を動かす運動機能を向上する効果があります。アスリート、スポーツ選手のパフォーマンス向上、発達期の子供の視覚機能の向上、発達障害の子どもの学力・運動能力の向上、ディスクレシア（識字障碍）の治療、中高齢者の運動機能の維持回復などに有効であるとして、日本でも導入が広がりつつあります。
+    </p>
+  </div>
 </div>
 
 <div class="midasi">
@@ -71,25 +65,22 @@
               <a href="{{ url_for('ref_game.ref_game')}}">プレイする</a>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="photo-container">
-          <img class="photo" src="../static/images/game_software_cassette.png" alt="写真2の説明">
-          <div class="text-container">
-            <h2 class="title">動体視力ゲーム</h2>
-            <p class="description">ジョビジョビくんが
-              持っていた数字を<br>読み取って押してください。<br>
-              レベルが上がるとスピードアップ！<br>
-              動体視力が試されます。<br>
-              頑張ってみてください。
-            </p>
-              <div class="button005">
-                <a href="{{ url_for('dva_game.dva_game')}}">プレイする</a>
-              </div>
+<div class="vision-box">
+  <div class="photo-container">
+      <img class="photo" src="../static/images/game_software_cassette.png" alt="写真1の説明">
+        <div class="text-container">
+          <h2 class="title">動体視力ゲーム</h2>
+          <p class="description">ジョビジョビくんが持ってきた<br>
+            数字を読み取って押してください。<br>
+            レベルが上がるとスピードアップ！<br>
+            動体視力が試されます。頑張ってみてください。</p>
+            <div class="button005">
+              <a href="{{ url_for('dva_game.dva_game')}}">プレイする</a>
             </div>
-          </div>
         </div>
-
-
-      </div>
-
+    </div>
+</div>
 {% endblock %}
