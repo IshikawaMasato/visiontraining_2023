@@ -65,23 +65,22 @@
               <a href="{{ url_for('ref_game.ref_game')}}">プレイする</a>
             </div>
         </div>
-
-        <div class="photo-container">
-          <img class="photo" src="../static/images/game_software_cassette.png" alt="写真2の説明">
-          <div class="text-container">
-            <h2 class="title">動体視力ゲーム</h2>
-            <p class="description">ジョビジョビくんが
-              持っていた数字を<br>読み取って押してください。<br>
-              レベルが上がるとスピードアップ！<br>
-              動体視力が試されます。<br>
-              頑張ってみてください。
-            </p>
-              <div class="button005">
-                <a href="{{ url_for('dva_game.dva_game')}}">プレイする</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
 </div>
 
+<div class="vision-box">
+  <div class="photo-container">
+      <img class="photo" src="../static/images/game_software_cassette.png" alt="写真1の説明">
+        <div class="text-container">
+          <h2 class="title">動体視力ゲーム</h2>
+          <p class="description">ジョビジョビくんが持ってきた<br>
+            数字を読み取って押してください。<br>
+            レベルが上がるとスピードアップ！<br>
+            動体視力が試されます。頑張ってみてください。</p>
+            <div class="button005">
+              <a href="{{ url_for('dva_game.dva_game')}}">プレイする</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
