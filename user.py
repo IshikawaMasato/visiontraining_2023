@@ -15,7 +15,10 @@ def logout():
 @user_bp.route('/')
 def user():
     if 'user' in session:
-        return render_template('user.html')
+        id = session['user'] 
+        result = db.vision_confirm(id)
+        
+        return render_template('user.html',result=result)
     else:
         return render_template('top.html')
 
@@ -33,10 +36,29 @@ def login_exe():
     if db.login(user_id, password):
         id=db.get_id(user_id)
         session['user'] = id
-        return render_template('user.html')
+        result = db.vision_confirm(id)
+        return render_template('user.html',result=result)
     else :
         error = 'アカウントが存在しません。'
         return render_template('user/login.html',error=error,user_data=user_data)
+    
+
+
+@user_bp.route('/login_from')
+def login_from():
+    return render_template('user/login.html')
+
+@user_bp.route('/', methods=['POST'])
+def login():
+    user_id = request.form.get('user_id')
+    password = request.form.get('password')
+
+    if db.login_exe(user_id, password):
+        session['user'] = True
+        return render_template('user.html')
+    else :
+        return render_template('user/login.html')
+
 @user_bp.route('/register_form')
 def register_form():
     return render_template('user/account_register.html')
@@ -93,12 +115,12 @@ def register_confirm():
         error = 'パスワードとパスワード(確認用)には同じパスワードを入力してください。'
         return render_template('user/account_register.html', error=error,user_data=user_data)
 
-
     return render_template('user/account_confirm.html',user_data=user_data)
 
 
 @user_bp.route('/password_publish')
 def password_publish():
+
     return render_template('user/password_publish.html')
 
 @user_bp.route('/account_delete')
@@ -126,3 +148,20 @@ def delete_exe():
 @user_bp.route('/delete_form')
 def delete_form():
     return render_template('user/account_delete.html')
+
+
+    return render_template('user/password_publish.html')
+    
+@user_bp.route('/password_change')
+def password_change():
+    return render_template('user/password_change.html')
+  
+    render_template('user/password_publish.html')
+
+def user_check():
+    if 'user' in session:
+        id = session['user'] 
+        return id
+    else:
+        return render_template('top.html')
+

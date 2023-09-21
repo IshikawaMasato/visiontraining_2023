@@ -1,0 +1,110 @@
+{% block content %}
+<div class="slideshow-container">
+    <div class="slide fade">
+        <img src="../static/images/slide1.png" alt="スライド1">
+    </div>
+    <div class="slide fade">
+        <img src="../static/images/slide2.png" alt="スライド2">
+    </div>
+  </div>
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+  
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+  
+    slideIndex++;
+  
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    } 
+  
+    slides[slideIndex - 1].style.display = "block";
+  
+    setTimeout(showSlides, 3000); // 3秒ごとにスライドを切り替える
+  }
+</script>
+
+<div class="midasi">
+  <h1 class="tit_font">ビジョントレーニングとは</h1>
+</div>
+<div class="photo-container">
+    <div class="photo">
+      <img src="../static/images/img_sport03.png" alt="写真の説明" class="photo">
+    <p class="reference">引用:ビジョントレーニングとその方法ビジョントレーニングメガネVisionup®（ビジョナップ®）の紹介と販売のサイト</p>
+    </img>
+  </div>
+    <p class="description">
+    ビジョントレーニングとは、目の見るチカラ「視覚機能」を高めるためのトレーニングです。
+    スポーツビジョントレーニングとも呼ばれます。50年以上前からアメリカ合衆国で提唱、
+    開発されてきたトレーニング方法で、”オプトメトリスト”と呼ばれる眼科医とほぼ横並び
+    の国家資格制度に基づき北米や欧州を中心に多くの国々で広く導入されています。残念ながら
+    日本では公的な資格制度はまだありません。
+      ビジョントレーニングには、眼球を動かす筋肉、
+      眼筋を鍛えることで両目を使って目標物を正確に捉えたり、
+      目からの情報を脳で処理して体を動かす運動機能を向上する効果があります。
+      アスリート、スポーツ選手のパフォーマンス向上、発達期の子供の視覚機能の向上、
+      発達障害の子どもの学力・運動能力の向上、ディスクレシア（識字障碍）の治療、
+      中高齢者の運動機能の維持回復などに有効であるとして、日本でも導入が広がりつつあります。
+    </p>
+</div>
+
+<div class="midasi">
+  <h1 class="tit_font">楽しくゲームでビジョトレ</h1>
+</div>
+
+{% for re in result %}
+<div class="vision-box">
+    <div class="vision">
+        <h1>反射神経ゲーム</h1>
+        <h1></h1>
+        <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[0] }} </h2>
+        <h2>目標Level: Level{{ re[1]}}
+        </h2>
+    </div>
+    <div class="vision">
+        <h1>動体視力ゲーム</h1>
+        <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[2] }}</h2>
+        <h2>目標Level: Level{{ re[3]}}</h2>
+    </div>
+  </div>
+    {% endfor %}
+    <div class="vision-box">
+<div class="photo-container">
+    <img class="photo" src="../static/images/game_software_cassette.png" alt="写真1の説明">
+      <div class="text-container">
+        <h2 class="title">反射神経ゲーム</h2>
+        <p class="description">ジョビジョビくんを素早く押そう！<br>
+          枠内に表示されたジョビジョビくんを押してください。<br>
+          5回押したらレベルアップ！<br>
+          時間内にすべてのジョビジョビくんを押しましょう！</p>
+          <div class="button005">
+            <a href="#">プレイする</a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="photo-container">
+    <img class="photo" src="../static/images/game_software_cassette.png" alt="写真2の説明">
+    <div class="text-container">
+      <h2 class="title">動体視力ゲーム</h2>
+      <p class="description">ジョビジョビくんが
+        持っていた数字を<br>読み取って押してください。<br>
+        レベルが上がるとスピードアップ！<br>
+        動体視力が試されます。<br>
+        頑張ってみてください。
+      </p>
+        <div class="button005">
+          <a href="{{ url_for('dva_game.dva_game')}}">プレイする</a>
+        </div>
+      </div>
+    </div>
+  </div>  
+{% endblock %}

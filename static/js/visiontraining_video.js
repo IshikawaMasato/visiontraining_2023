@@ -5,7 +5,7 @@
                 height: '360',
                 width: '640',
                 playerVars: {
-                    playlist: 'A6yNMFZgfK8,g9MUolW5qBw,HvU3g3M0fcs,u3pyJ2DeklU,-vRahwR7-qY', // 再生リストのID
+                    playlist: 'g9MUolW5qBw,u3pyJ2DeklU,HvU3g3M0fcs,75hSQAJySyY,ZuIcheuTfew,-vRahwR7-qY,_6Y_SkGQjck', // 再生リストのID
                     listType: 'playlist', // 再生リストタイプ指定
                     playsinline: 0,
                     modestbranding: 0,
@@ -26,24 +26,20 @@
             // プレーヤーが準備完了したら、動画の情報を取得し表示
             var duration = player.getDuration();
             document.getElementById('totalTime').textContent = formatTime(duration);
-
+    
             // 1秒ごとに現在の再生時間を更新
             setInterval(updateCurrentTime, 1000);
             // 再生ボタンのクリックイベントを追加
             document.getElementById('playButton').addEventListener('click', function () {
                 player.playVideo();
             });
-
+    
             // 一時停止ボタンのクリックイベントを追加
             document.getElementById('pauseButton').addEventListener('click', function () {
                 player.pauseVideo();
             });
 
-            // 停止ボタンのクリックイベントを追加
-            document.getElementById('stopButton').addEventListener('click', function () {
-                player.stopVideo();
-            });
-
+    
             // スキップボタンのクリックイベントを追加
             document.getElementById('backskipButton').addEventListener('click', function () {
                 BackskipVideo(10); // 10秒前スキップ（必要に応じて秒数を変更）
@@ -59,6 +55,13 @@
             // 次の動画ボタンのクリックイベントを追加
             document.getElementById('nextvideoButton').addEventListener('click', function () {
                 player.nextVideo();
+            });
+    
+            // 音量調整用のスライダーの変更イベントを追加
+            var volumeSlider = document.getElementById('volumeSlider');
+            volumeSlider.addEventListener('input', function () {
+                var volume = volumeSlider.value;
+                player.setVolume(volume); // 音量を設定
             });
         }
         

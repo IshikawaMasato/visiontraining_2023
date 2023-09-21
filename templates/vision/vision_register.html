@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/vision_register.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/footer.css')}}">
+    <title>目標設定</title>
+</head>
+<body>
+    {% include "user/user_header.html" %}
+    <p>{% if error != null %}
+        <p style="color:red">{{error}}</p>
+        {% endif %}
+    </p>
+    {% for re in result %}
+    <form action="{{ url_for('vision_register.vision_register') }}" method="post">
+    <div class="vision">
+        <h1>反射神経ゲーム</h1>
+        {% if re[0] == re[1] and re[0] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
+        <p>達成率: <meter class="meters" min="0" max="{{ re[1] }}" value="{{ re[0] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[0] }} </h2>
+        {% if message != null %}
+        <h1>{{ message }}</h1> 
+        {% endif %}
+        <h2>目標Level: Level{{ re[1]}}
+            <div class="field">
+                <button class="button" id="reflexdown">-</button>
+                <input type="range" value="{{ re[1]}}" class="inputtext" min="0" max="10" id="reflextextbox" name="dva_vision_level">
+                <button class="button" id="reflexup">+</button>
+                </div>
+        </h2>
+    </div>
+
+    <div class="vision">
+        <h1>動体視力ゲーム</h1>
+        {% if re[2] == re[3] and re[2] != 0%}
+        <h1>目標達成おめでとう😊😊😊</h1>
+        {% endif %}
+        <p>達成率: <meter class="meters" min="0" max="{{ re[3] }}" value="{{ re[2] }}"></meter></p>
+        <h2>現在のレベル： Level{{ re[2] }}</h2>
+        {% if message != null %}
+        <h1>{{ message }}</h1> 
+        {% endif %}
+        <h2>目標Level: Level{{ re[3]}}
+            <div class="field">
+                <button class="button" id="movedown">-</button>
+                <input type="range" value="{{ re[3]}}" class="inputrange" min="0" max="10" id="movetextbox" name="ref_vision_level">
+                <button class="button" id="moveup">+</button>
+            </div>
+        </h2>
+        <input type="hidden" class="exechange-button" placeholder="変更">
+    </div>
+    {% endfor %}
+    {% include "footer.html"%}
+    <script src="{{ url_for('static', filename='js/vision_register.js') }}"></script>
+</body>
+</html>

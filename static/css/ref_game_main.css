@@ -1,8 +1,18 @@
 @charset "utf-8";
 
-.level {
+#main_ref {
     text-align: center;
     font-weight: bold;
+}
+
+.levelup {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#clear_message {
+    padding-left: 2em;
 }
 
 #main {
@@ -11,7 +21,6 @@
     height: 360px;
     display: flex;
     margin: 0 auto;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -37,15 +46,9 @@
 
 .time {
     text-align: right;
-    padding-left: 5em;
+    padding-left: 2em;
 }
 
-/* .square {
-    width: 100px;
-    height: 100px;
-    background: #fff;
-    margin-left: 50px;
-} */
-/* #square {
-    background: #00eeff;
-} */
+.counts {
+    padding-left: 2em;
+}

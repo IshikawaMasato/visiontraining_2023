@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/ref_game_main.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/ref_game_sub.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/header.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/footer.css') }}">
+    <title>反射神経ゲーム</title>
+</head>
+<body>
+    {% include "top_header.html" %}
+    <h2 id="main_ref">
+      <span class="level">Level</span><sapn id="level_now">0</sapn>
+      <sapn class="counts">現在の進捗</span>&nbsp;<span id="counter">0</span><sapn>/5</span>
+      <span class="time">残り時間</span>&nbsp;<span id="timer"></span>
+    </h2>
+    <div id="main">
+      <div class="sub">
+        <div class="button" id="button1"></div>
+        <div class="button" id="button2"></div>
+        <div class="button" id="button3"></div>
+        <div class="button" id="button4"></div>
+        <div class="button" id="button5"></div>
+        <div class="button" id="button6"></div>
+        <div class="button" id="button7"></div>
+        <div class="button" id="button8"></div>
+        <div class="button" id="button9"></div>
+      </div>
+    </div>
+    
+    <div id="view_levelup">
+      <h1 class="message">おみごと！</h1>
+      <div class="levelup"><span class="level">Level</span><sapn id="level_clear">0</sapn><span id="clear_message">クリア</span></div>
+      <br><br>
+      <button class="button" id="next">次のレベルへ</button>
+      <br><br>
+      <a href="{{ url_for('ref_game.ref_game') }}"><button class="button" id="title1">タイトルに戻る</button></a>
+    </div>
+
+    <div id="view_retirement">
+        <h1 class="message">お疲れ様！</h1>
+        <div class="result">
+            スコア：<span id="score1"></span><br>
+            レベル：Level<span id="level"></span>
+        </div>
+        <div class="button">
+          <a href="{{ url_for('ref_game.ref_game') }}"><button id="title2">タイトルに戻る</button></a>
+        </div>
+    </div>
+    
+    <div id="view_allclear">
+        <h1 class="message">おめでとう！</h1>
+        <div class="result">
+            スコア：<span id="score2"></span><br>
+            レベル：Level<span id="level"></span>
+        </div>
+        <div class="button">
+          <a href="{{ url_for('ref_game.ref_game') }}"><button id="title3">タイトルに戻る</button></a>
+        </div>
+    </div>
+    <script src="../../../static/js/ref_game_main.js"></script>
+    {% include "footer.html"%}
+</body>
+</html>

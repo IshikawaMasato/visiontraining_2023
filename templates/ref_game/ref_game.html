@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/ref_game.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="/css/header.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/footer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visiontraining_video.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/game_play_video.css') }}">    
+    <script src="{{ url_for('static', filename='js/dva_game_play_video.js') }}" async></script>
+    <title>反射神経ゲーム</title>
+</head>
+<body>
+    {% include "top_header.html" %}
+    <div class="return">
+        <a href="{{ url_for('user.user') }}"><button>トップページに戻る</button></a>
+    </div>
+    <h1 class="game">反射神経ゲーム</h1>
+    <div class="start">
+        <a href="{{ url_for('ref_game.ref_game_main') }}"><button>ゲームスタート</button></a>
+    </div>
+
+    <div class="pop-up-menu">
+        <label class="open" for="pop-up1">遊び方</label>
+    </div>
+    <input type="checkbox" id="pop-up1">
+    <div class="overlay">
+        <div class="window1">
+            <label class="close" for="pop-up1">閉じる</label>
+            <h4>遊び方</h4>
+            <p>スタートボタンを押すと９個の枠内のいずれかにジョビジョビくんが表示されます。
+            表示されたジョビジョビくんを制限時間内に素早く押してください。<br>
+                (１レベルにつき５回、１回押すごとに制限時間がリセット)
+            レベルが上がるごとに制限時間が短くなります。
+            <p>レベルは１０まであります。ゴール目指して頑張りましょう！</p>
+            <div class="custom-video-player">
+                <video id="video" class="video" controls>
+                    <source src="{{url_for('static', filename='/video/dva_gameplay.mp4')}}" type="video/mp4" class="video" />
+                    <p>このブラウザーはvideo要素に対応していません。<a href="{{url_for('static', filename='/video/dva_gameplay.mp4.mp4')}}">動画ファイルへのリンク</a>から御覧ください。</p>
+                </video>
+                <div class="video-state">
+                    <div id="RangeContainer">
+                        <input type="range" id="playback" class="playback" >
+                    </div>
+                    <p>全体の時間: <span id="durationDisplay">0:00</span></p>
+                    <p>現在の再生時間: <span id="currentTimeDisplay">0:00</span></p>
+                </div>
+                    <div class="controls">
+                        <button id="playButtons" class="video_play"></button>
+                        <button id="pauseButtons" class="video_pause"></button>
+                        <button id="prevButton" class="video_backskip"></button>
+                        <button id="nextButton" class="video_jaupskip"></button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="pop-up-menu">
+        <label class="open" for="pop-up2">ランキング</label>
+    </div>
+    <input type="checkbox" id="pop-up2">
+    <div class="overlay">
+        <div class="window2">
+            <label class="close" for="pop-up2">閉じる</label>
+            <h4>ランキング一覧</h4>
+            <div class="ranking">
+                <table>
+                    <tr>
+                        <th>1</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <td>ユーザー名</td>
+                        <td>スコア</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% include "footer.html"%}
+</body>
+</html>
