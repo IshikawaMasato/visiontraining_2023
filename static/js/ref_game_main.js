@@ -74,8 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         message = 'ゲームクリア！';
                     } else {
                         document.getElementById('level_clear').innerText = level;
-                        level++;
-                        counter = 0;
                         message = 'レベルアップ！';
                     }
                     console.log(message);
@@ -115,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-    
 
     setInterval(function () {
         document.getElementById('counter').innerText = counter;
@@ -191,6 +188,8 @@ function timer_switch() {
         limitTime = limit[level - 1];
         startTime = Date.now();
         intervalTime = 1;
+        level++;
+        counter = 0;
         message = '開始前';
         console.log(message);
         Random_Image();
