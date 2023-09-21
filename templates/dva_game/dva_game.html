@@ -35,7 +35,13 @@
                         <source src="{{url_for('static', filename='/video/dva_gameplay.mp4')}}" type="video/mp4" class="video" />
                         <p>このブラウザーはvideo要素に対応していません。<a href="{{url_for('static', filename='/video/dva_gameplay.mp4.mp4')}}">動画ファイルへのリンク</a>から御覧ください。</p>
                     </video>
-
+                    <div class="video-state">
+                        <div id="RangeContainer">
+                            <input type="range" id="playback" class="playback" >
+                        </div>
+                        <p>全体の時間: <span id="durationDisplay">0:00</span></p>
+                        <p>現在の再生時間: <span id="currentTimeDisplay">0:00</span></p>
+                    </div>
                         <div class="controls">
                             <button id="playButtons" class="video_play"></button>
                             <button id="pauseButtons" class="video_pause"></button>
