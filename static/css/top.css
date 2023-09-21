@@ -1,41 +1,42 @@
 body {
   max-width: 100%;
   margin: auto;
-  padding:0;
+  padding: 0;
 }
+
 .slideshow-container {
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    margin: auto;
-    width: 60rem;
-    height: 50rem;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  margin: auto;
+  width: 60rem;
+  height: 50rem;
 }
 
 .slide {
-    display: none;
+  display: none;
 }
 
 img {
-    width: 100%;
-    height: 75%;
+  width: 100%;
+  height: 75%;
 }
 
 .fade {
-    animation-name: fade;
-    animation-duration: 3s;
+  animation-name: fade;
+  animation-duration: 3s;
 }
 
 @keyframes fade {
-    0%, 100% {
-        opacity: 0.4;
-    }
-    20%, 80% {
-        opacity: 1;
-    }
+  0%, 100% {
+    opacity: 0.4;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
 }
-  
+
 .tit_font {
   margin-top: 0.2rem;
   font-family: 'Kosugi Maru', sans-serif;
@@ -43,17 +44,16 @@ img {
   margin-bottom: 0.2rem;
   padding: 0.5rem;
   position: relative;
-  border-bottom: 5px solid;
+  border-bottom: 5px solid #91f033;
   color: #91f033;
   font-weight: bold;
-  margin-bottom: 50px;
 }
-  
+
 .tit_font:before {
   position: absolute;
   bottom: -0.6rem;
-  left: 0rem;
-  right: 0rem;
+  left: 0;
+  right: 0;
   border-bottom: 1px solid;
   content: '';
 }
@@ -64,24 +64,36 @@ img {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .photo {
   width: 20rem;
-  height: auto;
+  height: auto; /* 高さを自動調整 */
+  text-align: center;
 }
-.reference{
-  justify-content: center;
-  align-items: center; /* 垂直方向の中央揃え */
+
+/* 画像のスタイル */
+.photo img {
+  max-width: 200%; /* 幅を200%に拡大 */
+  height: auto; /* 高さを自動調整 */
 }
+
 .text-container {
   margin-left: 1em; /* 写真とタイトル・説明の間隔を設定 */
 }
+
 .title {
   font-size: 4rem;
   margin-bottom: 0.5rem; /* タイトルと説明の間隔を設定 */
 }
+
 .description {
-  padding-left:1em;
+  padding-left: 1em;
   width: 70%;
   font-family: system-ui;
   font-size: 1.5em;
@@ -99,11 +111,10 @@ img {
   color: #FFF;
   transition: 0.3s ease-in-out;
   font-weight: 600;
-  background: rgb(149,202,252);
   background: linear-gradient(270deg, rgba(149,202,252,1) 0%, rgba(107,182,255,1) 100%);
 }
+
 .button005 a:hover {
-  background: rgb(117,188,255);
   background: linear-gradient(270deg, rgba(117,188,255,1) 0%, rgba(62,159,252,1) 100%);
 }
 
@@ -113,3 +124,11 @@ img {
   line-height: 1.6;
 }
 
+/* descriptionのスタイル */
+.description {
+  margin-top: 20px;
+}
+
+.description p {
+  margin-bottom: 20px;
+}
