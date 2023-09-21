@@ -2,35 +2,36 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/visiontraining_video.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/game_play_video.css') }}">
 <div class="midasi">
-  <h1 class="tit_font">自宅で体を動かしてビジョトレ</h1>
-  <p id="description">基本的なビジョントレーニング方法なら誰でも、いつでも、どこでも簡単に<br>
-    スポーツビジョンのトレーニングを行なうことができます。<br>
-    コツは、1日に5～10分程度、3ヶ月間続けることです。年齢やレベルにかかわらず<br>
-    その人の現状から必ず見るチカラを向上することができます。<br>
-    主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です。</p>
+    <h1 class="tit_font">自宅で体を動かしてビジョトレ</h1>
   </div>
   <div class="video-content">
-    <div class="video-bar">
-  <video id="player" class="video"></video>
+    <p id="description">基本的なビジョントレーニング方法なら誰でも、いつでも、どこでも簡単に<br>
+      スポーツビジョンのトレーニングを行なうことができます。<br>
+      コツは、1日に5～10分程度、3ヶ月間続けることです。年齢やレベルにかかわらず<br>
+      その人の現状から必ず見るチカラを向上することができます。<br>
+      主に、眼球運動、周辺視、目と手の協応動作、瞬間視を鍛えるトレーニング方法が一般的です。</p>
+      <div class="video-bar">
+    <div id="player" class="video-main"></div>
 <div id="videoInfo" class="video-state">
-  <div id="progressContainer">
-      <div id="progressBar"></div>
-  </div>
-  <p>全体の時間: <span id="totalTime">0:00</span></p>
-  <p>現在の再生時間: <span id="currentTime">0:00</span></p>
-  <p>再生状態: <span id="playerState">-</span></p>
-  <p>音量:<input type="range" id="volumeSliders" min="0" max="100" step="1" value="100"/></p>
-
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+    <p>全体の時間: <span id="totalTime">0:00</span></p>
+    <p>現在の再生時間: <span id="currentTime">0:00</span></p>
+    <p>再生状態: <span id="playerState">-</span></p>
+    <p>音量:<input type="range" id="volumeSlider" min="0" max="100" step="1" value="100"/></p>
 </div>
 <div class="control-menu"> 
-  <button id="playButton" class="video_play"></button>
-  <button id="pauseButton" class="video_pause"></button>
-  <button id="backskipButton" class="video_backskip"></button>
-  <button id="jaupskipButton" class="video_jaupskip"></button>
-  <button id="backvideoButton" class="back_video"></button>
-  <button id="nextvideoButton" class="next_video"></button>
+<button id="playButton" class="video_play"></button>
+<button id="pauseButton" class="video_pause"></button>
+
+<button id="backskipButton" class="video_backskip"></button>
+<button id="jaupskipButton" class="video_jaupskip"></button>
+<button id="backvideoButton" class="back_video"></button>
+<button id="nextvideoButton" class="next_video"></button>
 </div>
-</div> 
+</div>
+</div>
 
 
 
