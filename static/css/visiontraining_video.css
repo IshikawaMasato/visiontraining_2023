@@ -317,3 +317,19 @@ input[type="range"] {
         padding: 5px;
 
 }
+
+.video-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .video-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
