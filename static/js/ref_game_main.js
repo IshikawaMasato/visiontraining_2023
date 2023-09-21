@@ -33,7 +33,10 @@ const buttonNumber = {
     'button7': 6,
     'button8': 7,
     'button9': 8,
-    'next': 9
+    'next': 9,
+    'title1': 10,
+    'title2': 11,
+    'title3': 12,
 }
 
 // ボタン押下時の処理
@@ -55,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 number = buttonNumber[this.id];
                 break;
             default:
-                number = 10;
+                number = -1;
                 break;
         }
 
@@ -85,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function() {
             intervalTime = 1;
             message = '次のレベルへ';
             console.log(message);
+        } else if( number === -1 ) {
+            message = 'タイトルに戻る';
+            console.log(message);
         } else {
             if( cool_log === true ) {
                 cool_log = false;
@@ -98,9 +104,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     console.log('ボタン押下:' + cool_log);
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', CountUp);
-    });
+    if( number !== -1 ) {
+        buttons.forEach((button) => {
+            button.addEventListener('click', CountUp);
+        });
+    } else {
+        buttons.forEach((button) => {
+            button.addEventListener('click', function() {
+                window.location.href = '/ref_game/ref_game';
+            });
+        });
+    }
+    
 
     setInterval(function () {
         document.getElementById('counter').innerText = counter;
@@ -151,7 +166,7 @@ function timer_switch() {
     element3.style.display = 'none';
     element4.style.display = 'none';
     element5.style.display = 'none';
-    if( ['開始前', '正解', 'クールダウン', '次のレベルへ'].includes(message) ) {
+    if( ['開始前', '正解', 'クールダウン'].includes(message) ) {
         if( (limitTime * 10) % 10 === 0 ) {
             document.getElementById('timer').innerText = limitTime + ".0秒";
         } else {
@@ -185,9 +200,6 @@ function timer_switch() {
         coolDiff = 0;
         cool_log = true;
     } else if( message === 'ゲームクリア！') {
-        score = 100;
-        document.getElementById('score2').innerText = score;
-        document.getElementById('level').innerText = level;
         element1.style.display = 'none';
         element2.style.display = 'none';
         element5.style.display = '';
@@ -195,22 +207,20 @@ function timer_switch() {
         element1.style.display = '';
         element2.style.display = '';
         element3.style.display = 'none';
-        if( element1.style.display === '' && element2.style.display === '' ) {
-            if( log === true ) {
-                Random_Image();
-                log = false;
-            }
-            countdown();
-            if(timeDiff <= 0) {
-                element1.style.display = 'none';
-                element2.style.display = 'none';
-                element4.style.display = '';
-                score = (level - 1) * 10 + counter * 2;
-                document.getElementById('score1').innerText = score;
-                document.getElementById('level').innerText = level - 1;
-                message = 'ゲーム終了！';
-                console.log(message);
-            }
+        if( log === true ) {
+            Random_Image();
+            log = false;
+        }
+        countdown();
+        if(timeDiff <= 0) {
+            element1.style.display = 'none';
+            element2.style.display = 'none';
+            element4.style.display = '';
+            score = (level - 1) * 10 + counter * 2;
+            document.getElementById('score1').innerText = score;
+            document.getElementById('level').innerText = level - 1;
+            message = 'ゲーム終了！';
+            console.log(message);
         }
     }
 
