@@ -36,7 +36,7 @@ def insert_user(name, age, gender, mail, user_id, password1):
     return count
 
 def login(user_id, password):
-    sql = 'SELECT password, salt FROM vision_accounts WHERE user_id = %s'
+    sql = 'SELECT password, salt FROM vision_accounts WHERE user_id = %s AND delete_flg = false'
     flg = False
 
     try :
@@ -105,5 +105,41 @@ def vision_exechange(id, dva_vision_level, ref_vision_level):
     sql = "UPDATE vision_accounts SET dva_vision_level = %s, ref_vision_level = %s WHERE id = %s"
     cursor.execute(sql, (dva_vision_level, ref_vision_level, id,))
     connection.commit()  # コミットを忘れずに
+    cursor.close()
+    connection.close()
+
+
+def password_check(id, password):
+    sql = 'SELECT password, salt FROM vision_accounts WHERE id = %s'
+    flg = False
+
+    try :
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        cursor.execute(sql, (id,))
+        user = cursor.fetchone()
+
+        if user != None:
+            salt = user[1]
+            hashed_password = get_hash(password, salt)
+            if hashed_password == user[0]:
+                flg = True
+
+    except psycopg2.DatabaseError :
+        flg = False
+
+    finally :
+        cursor.close()
+        connection.close()
+
+    return flg
+
+def delete_account(id):
+    sql = 'UPDATE vision_accounts SET delete_flg = TRUE WHERE id = %s'
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute(sql, (id,))
+    connection.commit()
     cursor.close()
     connection.close()
