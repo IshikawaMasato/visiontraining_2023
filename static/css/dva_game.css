@@ -1,29 +1,19 @@
 @charset "utf-8";
-.game {
-	font-size: 70px;
-	text-align: center;
-}
 #start {
 	font-size: 30px;
-	text-align: center;
 	border:none;
 	background: rgb(255, 255, 255);
 }
-.return button, .start button {
-	font-size: 30px;
-	width: 290px;
-}
 .pop-up-menu {
 	font-size: 30px;
-	text-align: center;
 }
-#pop_up1, #pop_up2 {
+#pop_up2, #pop_up3 {
 	display: none;
 }
 .overlay {
 	display: none;
 }
-#pop_up1:checked + .overlay, #pop_up2:checked + .overlay {
+#pop_up2:checked + .overlay, #pop_up3:checked + .overlay {
 	display: block;
 	position: fixed;
 	width: 100%;
@@ -85,18 +75,20 @@
 	text-align: center;
 	font-size: 30px;
 }
-#transition{
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
 #correct{
 	text-align: center;
 	size: 20px;
 }
 .animation-area{
     overflow: hidden;
+}
+.pop-up-menu{
+	text-align: center;
+} 
+button{
+	margin-left: auto;
+	margin-right: auto;
+}
+#transition{
+	text-align: center;
 }

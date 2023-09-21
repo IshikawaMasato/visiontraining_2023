@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../static/css/dva_game.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/dva_game.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/footer.css')}}">
 
@@ -12,17 +12,19 @@
 <body>
     {% include "top_header.html" %}
     <h1 class="pop-up-menu">動体視力ゲーム</h1>
-    <div class="pop-up-menu">
-        <button id="start">開始</button>
-    </div>
-    <div id="pop_up_1">
+    <div class="pop_up_1">
         <div class="pop-up-menu">
-            <label class="open" for="pop_up1">遊び方</label>
+            <button id="start" >開始</button>
         </div>
-        <input type="checkbox" id="pop_up1">
+    </div>
+    <div id="pop_up_2">
+        <div class="pop-up-menu">
+            <label class="open" for="pop_up2">遊び方</label>
+        </div>
+        <input type="checkbox" id="pop_up2">
         <div class="overlay">
             <div class="window1">
-                <label class="close" for="pop_up1">閉じる</label>
+                <label class="close" for="pop_up2">閉じる</label>
                 <h4>遊び方</h4>
                 <p>スタートボタンを押すと数字が左から右に移動します。</p>
                 <p>表示された数字と同じものを選択してください。</p>
@@ -32,14 +34,14 @@
         </div>
     </div>
     
-    <div id="pop_up_2">
+    <div id="pop_up_3">
         <div class="pop-up-menu">
-            <label class="open" for="pop_up2">ランキング</label>
+            <label class="open" for="pop_up3">ランキング</label>
         </div>
-        <input type="checkbox" id="pop_up2">
+        <input type="checkbox" id="pop_up3">
         <div class="overlay">
             <div class="window2">
-                <label class="close" for="pop_up2">閉じる</label>
+                <label class="close" for="pop_up3">閉じる</label>
                 <h4>ランキング一覧</h4>
                 <div class="ranking">
                     <table>
@@ -101,42 +103,42 @@
 
     <p id="output" style="display: none;"></p>
 
-<div class="animation-area">
-    <img id="image" src="../../../static/images/dva_game_number_1.png" style="display:none">
-</div>
+    <div class="animation-area">
+        <img id="image" src="../../../static/images/dva_game_number_1.png" style="display:none" alt="画面">
+    </div>
 
-<p style="display:none" id="button_msg">横切った数字はどれ？</p>
+    <p style="display:none" id="button_msg">横切った数字はどれ？</p>
 
-<table id="button_table" style="display: none;">
-        <tr>
-            <td><button id="button1" class="ans_botton">1</button></td>
-            <td><button id="button2" class="ans_botton">2</button></td>
-            <td><button id="button3" class="ans_botton">3</button></td>
-        </tr>
-        <tr>
-            <td><button id="button4" class="ans_botton">4</button></td>
-            <td><button id="button5" class="ans_botton">5</button></td>
-            <td><button id="button6" class="ans_botton">6</button></td>
-        </tr>
-        <tr>
-            <td><button id="button7" class="ans_botton">7</button></td>
+    <div id="a">
+        <table id="button_table" style="display: none">
+            <tr>
+                <td><button id="button1" class="ans_botton">1</button></td>
+                <td><button id="button2" class="ans_botton">2</button></td>
+                <td><button id="button3" class="ans_botton">3</button></td>
+            </tr>
+            <tr>
+                <td><button id="button4" class="ans_botton">4</button></td>
+                <td><button id="button5" class="ans_botton">5</button></td>
+                <td><button id="button6" class="ans_botton">6</button></td>
+            </tr>
+            <tr>
+                <td><button id="button7" class="ans_botton">7</button></td>
             <td><button id="button8" class="ans_botton">8</button></td>
             <td><button id="button9" class="ans_botton">9</button></td>
         </tr>
-    </table>
-
-    <div id="correct" style="display:none">
-        <h1>正解</h1>
+        </table>
     </div>
-
-    <div id="incorrect" style="display:none" class="answer"></div>
-    <div id="incorrect_score" style="display:none" class="answer"></div>
-    <div id="incorrect_level" style="display:none" class="answer"></div>
+    <div class="answer">
+        <div id="correct" style="display:none"></div>
+        <div id="incorrect" style="display:none"></div>
+        <div id="incorrect_score" style="display:none"></div>
+        <div id="incorrect_level" style="display:none"></div>
+    </div>
     <div id="transition">
-        <button id="next_button" style="display:none">次のレベルへ</button>
         <button id="top_button" style="display:none">トップへ戻る</button>
-        <script src="../../../static/js/dva_game.js" async></script>
+        <button id="next_button" style="display:none">次のレベルへ</button>
     </div>
+    <script src="{{ url_for('static', filename='js/dva_game.js') }}" async></script>
     {% include "footer.html"%}
 </body>
 </html>
