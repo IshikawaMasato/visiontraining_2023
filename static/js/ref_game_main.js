@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         buttons.forEach((button) => {
             button.addEventListener('click', function() {
-                window.location.href = '/ref_game/ref_game';
+                window.location.href = '/ref_game/ref_game.html';
             });
         });
     }
