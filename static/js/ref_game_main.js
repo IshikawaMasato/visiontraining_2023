@@ -6,17 +6,16 @@ let maxcount = 5;
 let level = 1;
 let maxlevel = 10;
 const limit = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5, 1, 0.75];
-var limitTime = limit[level-1];
-var startTime = Date.now();
-var timeDiff;
-var intervalTime = 1;
-var coolDiff;
-var score = 0;
-var log = true;
-var cool_log = true;
+let limitTime = limit[level-1];
+let startTime = Date.now();
+let timeDiff;
+let intervalTime = 1;
+let coolDiff;
+let log = true;
+let cool_log = true;
 let random;
 let number;
-var message = '開始前';
+let message = '開始前';
 const element1 = document.getElementById('main_ref');
 const element2 = document.getElementById('main');
 const element3 = document.getElementById('view_levelup');
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                     console.log(message);
                 }
-                Delete_Image();
+                document.querySelector('img').remove();
             }
         } else if( number === 9 ) {
             limitTime = limit[level-1];
@@ -100,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }            
         }
     }
-    console.log('ボタン押下:' + cool_log);
 
     if( number !== -1 ) {
         buttons.forEach((button) => {
@@ -122,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // カウントダウン処理
 var countdown = function () {
-    if( ['開始前', '正解', 'ゲームクリア！', 'レベルアップ！', '次のレベルへ'].includes(message) ) {
+    if( ['開始前', '正解', '次のレベルへ'].includes(message) ) {
         limitTime = limit[level-1];
         startTime = Date.now();
         message = '';
@@ -134,16 +132,13 @@ var countdown = function () {
     timeDiff = Math.floor(timeDiff);
     timeDiff = timeDiff / 10;
     console.log('残り時間:' + timeDiff + '秒');
-    if( (timeDiff * 10) % 10 === 0 ) {
-        document.getElementById('timer').innerText = timeDiff + ".0秒";
-    } else {
-        document.getElementById('timer').innerText = timeDiff + "秒";
-    }
+    const countdownText = (timeDiff * 10) % 10 === 0 ? timeDiff + ".0秒" : timeDiff + "秒";
+    document.getElementById('timer').innerText = countdownText;
 }
 
 // クールダウンタイム処理
 var cooldown = function () {    
-    if( ['正解', 'ゲームクリア！', 'レベルアップ！'].includes(message) ) {
+    if( ['正解', 'レベルアップ！'].includes(message) ) {
         message = 'クールダウン';
         cool_log = true;
         startTime = Date.now();
@@ -164,11 +159,8 @@ function timer_switch() {
     element4.style.display = 'none';
     element5.style.display = 'none';
     if( ['開始前', '正解', 'クールダウン'].includes(message) ) {
-        if( (limitTime * 10) % 10 === 0 ) {
-            document.getElementById('timer').innerText = limitTime + ".0秒";
-        } else {
-            document.getElementById('timer').innerText = limitTime + "秒";
-        }
+        const timeText = (limitTime * 10) % 10 === 0 ? limitTime + ".0秒" : limitTime + "秒";
+        document.getElementById('timer').innerText = timeText;
         cool_log = true;
         cooldown();
         if(coolDiff <= 0) {
@@ -215,9 +207,14 @@ function timer_switch() {
             element1.style.display = 'none';
             element2.style.display = 'none';
             element4.style.display = '';
-            score = (level - 1) * 10 + counter * 2;
+            const score = (level - 1) * 10 + counter * 2;
             document.getElementById('score1').innerText = score;
-            document.getElementById('level').innerText = level - 1;
+            if( level === 1 ) {
+                document.getElementById('level').innerText = '1未満';
+            } else {
+                document.getElementById('level').innerText = level - 1;
+            }
+            
             message = 'ゲーム終了！';
             console.log(message);
         }
@@ -250,7 +247,9 @@ function Random_Image() {
         console.log(random);
         image_area = img_button[random];
         image_area.appendChild(image);
-        startTimer();
+        limitTime = limit[level-1];
+        startTime = Date.now();
+        countdown();
         log = false;
     }
 
@@ -261,18 +260,5 @@ function Random_Image() {
 }
 
 setInterval(Random_Image, limitTime*1000);
-
-// タイマースタート処理
-function startTimer() {
-    limitTime = limit[level-1];
-    startTime = Date.now();
-    countdown();
-}
-
-// 画像削除処理(１回ごとに実行)
-function Delete_Image() {
-    console.log('delete');
-    document.querySelector('img').remove();
-}
 
 timer_switch();
