@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('main').remove();
                 message = '不正解';
                 console.log(message);
-            }
-            
+            }            
         }
     }
+    console.log('ボタン押下:' + cool_log);
 
     buttons.forEach((button) => {
         button.addEventListener('click', CountUp);
@@ -157,6 +157,7 @@ function timer_switch() {
         } else {
             document.getElementById('timer').innerText = limitTime + "秒";
         }
+        cool_log = true;
         cooldown();
         if(coolDiff <= 0) {
             coolDiff = 0;
