@@ -1,5 +1,6 @@
 const imageArea = document.getElementById('image');
-const images = ['/static/images/dva_game_number_1.png',
+const images = [
+  '/static/images/dva_game_number_1.png',
   '/static/images/dva_game_number_2.png',
   '/static/images/dva_game_number_3.png',
   '/static/images/dva_game_number_4.png',
@@ -17,8 +18,8 @@ const ans_button = document.getElementById('button_table'); //数字ボタンの
 const next_button = document.getElementById('next_button'); // 次へボタン
 const top_button = document.getElementById('top_button'); // トップへ戻るボタン
 
-const pop_up_1 = document.getElementById('pop_up_1'); //遊び方
-const pop_up_2 = document.getElementById('pop_up_2'); //ランキング
+const pop_up_2 = document.getElementById('pop_up_2'); //遊び方
+const pop_up_3 = document.getElementById('pop_up_3'); //ランキング
 
 const now_level = document.getElementById('now_level'); //レベル
 let outputElement = document.getElementById("output");
@@ -150,13 +151,12 @@ function SetGameState(newGameState) {
   currentGameState = newGameState;
 }
 
-
 // Topボタン押下処理
 function OnTopButtonClicked() {
   console.log(OnTopButtonClicked);
   startButton.style.display = ''; //スタートボタンを表示
-  pop_up_1.style.display = ''; //遊び方を表示
-  pop_up_2.style.display = ''; //ランキングを表示
+  pop_up_2.style.display = ''; //遊び方を表示
+  pop_up_3.style.display = ''; //ランキングを表示
 
   button_msg.style.display = 'none';
   next_button.style.display = 'none';
@@ -184,8 +184,8 @@ function ToggleStartView(isShow) {
 
   let display = isShow ? 'block' : 'none';
   startButton.style.display = display; // スタートボタンを非表示
-  pop_up_1.style.display = display; // 遊び方を非表示
-  pop_up_2.style.display = display; // ランキングを非表示
+  pop_up_2.style.display = display; // 遊び方を非表示
+  pop_up_3.style.display = display; // ランキングを非表示
 
   correct.style.display != display; // 正解の非表示
   incorrect.style.display != display; // 不正解の非表示
@@ -197,7 +197,7 @@ function ToggleStartView(isShow) {
 function ToggleGameView(isShow) {
   console.log("ToggleGameView");
 
-  let display = isShow ? 'block' : 'none';
+  let display = isShow ? '' : 'none';
 
   image.style.display = display; //画像を表示 
   button_msg.style.display = display; // 数字ボタンを押すメッセージ表示
@@ -208,17 +208,14 @@ function ToggleGameView(isShow) {
 function ToggleNextView(isShow) {
   console.log("ToggleNextView");
 
-  let display = isShow ? 'block' : 'none';
+  let display = isShow ? '' : 'none';
 
   next_button.style.display = display; //  次への非表示
   top_button.style.display = display; //トップボタンの非表示
 
-  correct.innerHTML = '<h1>正解<h1>!'
+  correct.innerHTML = '<h1>正解!<h1>'
   correct.style.display = display; //正解の非表示
   incorrect.style.display = display; //不正解の非表示
-
-  incorrect_score.style.display = isShow ? 'none' : 'block'; //不正解
-  incorrect_level.style.display = isShow ? 'none' : 'block'; //不正解
 }
 
 // リザルト画面表示切替
