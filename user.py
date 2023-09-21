@@ -35,7 +35,7 @@ def login_exe():
         session['user'] = id
         return render_template('user.html')
     else :
-        error = 'ユーザIDもしくはパスワードが違います。'
+        error = 'アカウントが存在しません。'
         return render_template('user/login.html',error=error,user_data=user_data)
 @user_bp.route('/register_form')
 def register_form():
@@ -99,4 +99,30 @@ def register_confirm():
 
 @user_bp.route('/password_publish')
 def password_publish():
-    render_template('user/password_publish.html')
+    return render_template('user/password_publish.html')
+
+@user_bp.route('/account_delete')
+def account_delete():
+    return render_template('user/account_delete.html')
+
+
+@user_bp.route('/account_delete_exe', methods=['POST'])
+def delete_exe():
+    password = request.form.get('password')
+    
+    if password=='':
+        error = 'パスワードが未入力です。'
+        return render_template('user/account_delete.html', error=error)
+    
+    id = session['user']
+    
+    if db.password_check(id, password):
+        db.delete_account(id)
+        return render_template('top.html')
+    else :
+        error = 'パスワードが違います。'
+        return render_template('user/account_delete.html',error=error,password=password)
+
+@user_bp.route('/delete_form')
+def delete_form():
+    return render_template('user/account_delete.html')
