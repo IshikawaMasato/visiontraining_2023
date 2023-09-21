@@ -185,11 +185,11 @@ function timer_switch() {
         element2.style.display = 'none';
         element3.style.display = '';
     } else if( message === '次のレベルへ') {
+        level++;
+        counter = 0;
         limitTime = limit[level - 1];
         startTime = Date.now();
         intervalTime = 1;
-        level++;
-        counter = 0;
         message = '開始前';
         console.log(message);
         Random_Image();
@@ -276,4 +276,3 @@ function Delete_Image() {
 }
 
 timer_switch();
-
