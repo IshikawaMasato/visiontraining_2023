@@ -2,6 +2,8 @@
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
+                width:"640",
+                height:"360",
                 playerVars: {
                     playlist: 'g9MUolW5qBw,u3pyJ2DeklU,HvU3g3M0fcs,75hSQAJySyY,ZuIcheuTfew,-vRahwR7-qY,_6Y_SkGQjck', // 再生リストのID
                     listType: 'playlist', // 再生リストタイプ指定
