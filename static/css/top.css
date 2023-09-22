@@ -58,17 +58,24 @@ img {
   content: '';
 }
 
-.photo-container {
+.photo-container1, .photo-container2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.photo-container1 {
+  max-width: 900px;
+}
+
+.photo-container2 {
+  max-width: 850px;
 }
 
 .photo {
@@ -85,6 +92,7 @@ img {
 
 .text-container {
   margin-left: 1em; /* 写真とタイトル・説明の間隔を設定 */
+  width: 500px;
 }
 
 .title {
@@ -92,11 +100,25 @@ img {
   margin-bottom: 0.5rem; /* タイトルと説明の間隔を設定 */
 }
 
-.description {
+/* descriptionのスタイル */
+.description1, .description2 {
   padding-left: 1em;
-  width: 70%;
   font-family: system-ui;
-  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.description1 p, .description2 p {
+  margin-bottom: 20px;
+}
+
+.description1 {
+  width: 88%;
+  font-size: 2em;
+}
+
+.description2 {
+  width: 70%;
+  font-size: 1.6em;
 }
 
 .button005 a {
@@ -124,11 +146,6 @@ img {
   line-height: 1.6;
 }
 
-/* descriptionのスタイル */
-.description {
-  margin-top: 20px;
-}
 
-.description p {
-  margin-bottom: 20px;
-}
+
+
