@@ -78,11 +78,10 @@
         </table>
 
         <tr>
-            <input type="submit" class="button" placeholder="登録">
+            <input type="submit" class="button" value="登録">
         </tr>
-        <button href="{{ url_for('user.register_form')}}">戻る</button>
-
     </form>
+    <a href="{{ url_for('user.register_form')}}"><button>戻る</button></a>
 </div>
 {% include "footer.html"%}
     </body>
